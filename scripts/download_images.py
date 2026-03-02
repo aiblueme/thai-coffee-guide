@@ -18,8 +18,12 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
+# Silence noisy icrawler sub-loggers
+for noisy in ("icrawler", "filelock", "urllib3", "requests"):
+    logging.getLogger(noisy).setLevel(logging.WARNING)
+
 # ---------------------------------------------------------------------------
-# Rotating User-Agents – recent Chrome / Firefox strings
+# Rotating User-Agents — recent Chrome / Firefox strings
 # ---------------------------------------------------------------------------
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -133,85 +137,67 @@ BASE_RAW_DIR = Path(__file__).parent.parent / "images" / "raw"
 
 
 def random_sleep(min_s: float = 2.0, max_s: float = 5.0) -> None:
-    """Sleep for a random duration to mimic human browsing pace."""
     delay = random.uniform(min_s, max_s)
-    log.info("Sleeping %.1f seconds …", delay)
+    log.info("Sleeping %.1f s …", delay)
     time.sleep(delay)
 
 
-def get_feeder_kwargs() -> dict:
-    """Return downloader kwargs with a rotated User-Agent."""
-    ua = random.choice(USER_AGENTS)
+def make_headers() -> dict:
     return {
-        "headers": {
-            "User-Agent": ua,
-            "Accept-Language": "en-US,en;q=0.9,th;q=0.8",
-            "Accept": "text/html,application/xhtml+xml,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        }
+        "User-Agent": random.choice(USER_AGENTS),
+        "Accept-Language": "en-US,en;q=0.9,th;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     }
 
 
-def crawl_bing(brand_key: str, keyword: str, save_dir: Path, max_num: int = 4) -> None:
-    """Download images from Bing for a single keyword."""
+def crawl_bing(keyword: str, save_dir: Path, max_num: int = 4) -> None:
     save_dir.mkdir(parents=True, exist_ok=True)
-    feeder_kwargs = get_feeder_kwargs()
     crawler = BingImageCrawler(
         feeder_threads=1,
         parser_threads=1,
         downloader_threads=1,
         storage={"root_dir": str(save_dir)},
-        extra_downloader_args={"headers": feeder_kwargs["headers"]},
     )
+    # Set UA on the shared session (passed to feeder, parser, downloader)
+    crawler.session.headers.update(make_headers())
     try:
-        crawler.crawl(
-            keyword=keyword,
-            max_num=max_num,
-            min_size=(200, 200),
-        )
+        crawler.crawl(keyword=keyword, max_num=max_num, min_size=(200, 200))
     except Exception as exc:
         log.warning("Bing crawl failed for %r: %s", keyword, exc)
 
 
-def crawl_baidu(brand_key: str, keyword: str, save_dir: Path, max_num: int = 4) -> None:
-    """Download images from Baidu for a single keyword (great for Thai product photos)."""
+def crawl_baidu(keyword: str, save_dir: Path, max_num: int = 4) -> None:
     save_dir.mkdir(parents=True, exist_ok=True)
-    feeder_kwargs = get_feeder_kwargs()
     crawler = BaiduImageCrawler(
         feeder_threads=1,
         parser_threads=1,
         downloader_threads=1,
         storage={"root_dir": str(save_dir)},
-        extra_downloader_args={"headers": feeder_kwargs["headers"]},
     )
+    crawler.session.headers.update(make_headers())
     try:
-        crawler.crawl(
-            keyword=keyword,
-            max_num=max_num,
-        )
+        crawler.crawl(keyword=keyword, max_num=max_num)
     except Exception as exc:
         log.warning("Baidu crawl failed for %r: %s", keyword, exc)
 
 
 def download_brand(brand_key: str, keywords: list[str]) -> None:
-    """Download images for a single brand using all provided keywords."""
     brand_dir = BASE_RAW_DIR / brand_key
     brand_dir.mkdir(parents=True, exist_ok=True)
 
     log.info("=" * 60)
-    log.info("Downloading: %s", brand_key)
+    log.info("Downloading: %s (%d keywords)", brand_key, len(keywords))
     log.info("=" * 60)
 
     for i, keyword in enumerate(keywords):
         log.info("[%d/%d] Keyword: %r", i + 1, len(keywords), keyword)
 
-        # Bing pass
         bing_dir = brand_dir / f"bing_{i}"
-        crawl_bing(brand_key, keyword, bing_dir, max_num=4)
+        crawl_bing(keyword, bing_dir, max_num=4)
         random_sleep(2.0, 4.0)
 
-        # Baidu pass (valuable for Thai product indexing)
         baidu_dir = brand_dir / f"baidu_{i}"
-        crawl_baidu(brand_key, keyword, baidu_dir, max_num=4)
+        crawl_baidu(keyword, baidu_dir, max_num=4)
         random_sleep(2.0, 5.0)
 
     log.info("Finished brand: %s", brand_key)
@@ -221,21 +207,16 @@ def main() -> None:
     BASE_RAW_DIR.mkdir(parents=True, exist_ok=True)
 
     brand_keys = list(BRAND_KEYWORDS.keys())
-    random.shuffle(brand_keys)  # Vary crawl order to avoid patterns
+    random.shuffle(brand_keys)
 
     for idx, brand_key in enumerate(brand_keys):
-        keywords = BRAND_KEYWORDS[brand_key]
-        download_brand(brand_key, keywords)
-
+        download_brand(brand_key, BRAND_KEYWORDS[brand_key])
         if idx < len(brand_keys) - 1:
-            # Stagger brand downloads: 10-30 second pause between brands
-            inter_brand_sleep = random.uniform(10, 30)
-            log.info(
-                "Sleeping %.0f seconds before next brand …", inter_brand_sleep
-            )
-            time.sleep(inter_brand_sleep)
+            inter = random.uniform(10, 25)
+            log.info("Inter-brand pause: %.0f s …", inter)
+            time.sleep(inter)
 
-    log.info("All brands downloaded. Run process_images.py next.")
+    log.info("All brands done. Run process_images.py next.")
 
 
 if __name__ == "__main__":

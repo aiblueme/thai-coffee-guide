@@ -5,464 +5,1133 @@
       "slug": "khao-shong",
       "name_en": "Khao Shong",
       "name_th": "เขาช่อง",
-      "category": ["commercial", "blend"],
+      "category": [
+        "commercial",
+        "blend"
+      ],
       "origin_region": "Surat Thani / Southern Thailand",
       "founded": 1980,
       "brand_story": "Thailand's most iconic coffee brand, sourced from the lush hills of Khao Shong in Surat Thani. A household name for over four decades, synonymous with classic Thai-style robusta coffee.",
-      "roast_levels": ["medium", "dark", "espresso"],
+      "roast_levels": [
+        "medium",
+        "dark",
+        "espresso"
+      ],
       "flavor_profile": {
         "description": "Bold, full-bodied with earthy robusta character. Notes of dark chocolate, roasted nuts, and a pleasant bitter finish. Classic Thai coffee shop taste.",
-        "notes": ["dark chocolate", "roasted nuts", "earthiness", "bitter finish"],
+        "notes": [
+          "dark chocolate",
+          "roasted nuts",
+          "earthiness",
+          "bitter finish"
+        ],
         "body": 5,
         "acidity": 1,
         "sweetness": 2,
         "bitterness": 5,
         "aroma": 4
       },
-      "price_range_thb": { "min": 75, "max": 120, "per_grams": 200 },
-      "where_to_buy": ["7-Eleven", "Big C", "Lotus's", "Makro", "Tops", "Shopee", "Lazada"],
-      "tags": ["commercial", "blend", "robusta", "budget-friendly", "iconic"],
+      "price_range_thb": {
+        "min": 75,
+        "max": 120,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "7-Eleven",
+        "Big C",
+        "Lotus's",
+        "Makro",
+        "Tops",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "robusta",
+        "budget-friendly",
+        "iconic"
+      ],
       "rating": 4.1,
       "rating_count": 1240,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.khaoshong.com",
-      "available_formats": ["ground", "instant", "drip bag"]
+      "available_formats": [
+        "ground",
+        "instant",
+        "drip bag"
+      ]
     },
     {
       "id": "dao-coffee",
       "slug": "dao-coffee",
       "name_en": "Dao Coffee",
       "name_th": "ดาวคอฟฟี่",
-      "category": ["commercial", "arabica", "single-origin"],
+      "category": [
+        "commercial",
+        "arabica",
+        "single-origin"
+      ],
       "origin_region": "Chiang Rai Highlands",
       "founded": 1995,
       "brand_story": "Grown in the high-altitude terraces of Chiang Rai, Dao Coffee champions highland arabica from northern Thai hill tribes. A pioneer in bringing quality arabica to mainstream Thai supermarkets.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Smooth highland arabica with bright acidity and floral hints. Gentle sweetness, notes of citrus blossom and mild stone fruit, clean finish.",
-        "notes": ["citrus blossom", "stone fruit", "mild sweetness", "clean finish"],
+        "notes": [
+          "citrus blossom",
+          "stone fruit",
+          "mild sweetness",
+          "clean finish"
+        ],
         "body": 3,
         "acidity": 4,
         "sweetness": 3,
         "bitterness": 2,
         "aroma": 4
       },
-      "price_range_thb": { "min": 95, "max": 160, "per_grams": 200 },
-      "where_to_buy": ["Tops", "Big C", "Lotus's", "Shopee", "Lazada"],
-      "tags": ["commercial", "arabica", "single-origin", "highland", "Chiang Rai"],
+      "price_range_thb": {
+        "min": 95,
+        "max": 160,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Tops",
+        "Big C",
+        "Lotus's",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "arabica",
+        "single-origin",
+        "highland",
+        "Chiang Rai"
+      ],
       "rating": 4.0,
       "rating_count": 430,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     },
     {
       "id": "cafe-amazon",
       "slug": "cafe-amazon",
       "name_en": "Café Amazon",
       "name_th": "คาเฟ่ อเมซอน",
-      "category": ["commercial", "blend"],
+      "category": [
+        "commercial",
+        "blend"
+      ],
       "origin_region": "Multiple Thai Regions",
       "founded": 2002,
       "brand_story": "PTT's wildly successful café chain with over 4,000 outlets across Thailand. Café Amazon's retail ground coffee brings the familiar chain taste home, blending robusta and arabica for broad appeal.",
-      "roast_levels": ["medium", "dark"],
+      "roast_levels": [
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Approachable and consistent. Medium-bodied blend of Thai arabica and robusta. Caramel sweetness upfront, mild cocoa notes, smooth aftertaste designed for mass appeal.",
-        "notes": ["caramel", "milk chocolate", "mild nuts", "smooth finish"],
+        "notes": [
+          "caramel",
+          "milk chocolate",
+          "mild nuts",
+          "smooth finish"
+        ],
         "body": 3,
         "acidity": 2,
         "sweetness": 3,
         "bitterness": 3,
         "aroma": 3
       },
-      "price_range_thb": { "min": 85, "max": 130, "per_grams": 200 },
-      "where_to_buy": ["Café Amazon outlets", "PTT stations", "Tops", "Shopee", "Lazada"],
-      "tags": ["commercial", "blend", "arabica", "robusta", "widely-available"],
+      "price_range_thb": {
+        "min": 85,
+        "max": 130,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Café Amazon outlets",
+        "PTT stations",
+        "Tops",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "arabica",
+        "robusta",
+        "widely-available"
+      ],
       "rating": 3.9,
       "rating_count": 2100,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.cafeamazon.com",
-      "available_formats": ["ground", "drip bag", "capsule"]
+      "available_formats": [
+        "ground",
+        "drip bag",
+        "capsule"
+      ]
     },
     {
       "id": "birdy",
       "slug": "birdy",
       "name_en": "Birdy",
       "name_th": "เบอร์ดี้",
-      "category": ["commercial", "blend"],
+      "category": [
+        "commercial",
+        "blend"
+      ],
       "origin_region": "Thailand",
       "founded": 1990,
       "brand_story": "Ajinomoto's Birdy brand is one of Thailand's best-known canned coffee names, now extending into ground coffee blends. Widely trusted by everyday Thai consumers for its consistent, approachable taste.",
-      "roast_levels": ["medium", "dark"],
+      "roast_levels": [
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Sweet-forward and smooth, optimized for Thai-style milk coffee preparation. Notes of caramelized sugar, light chocolate, and a creamy texture when brewed.",
-        "notes": ["caramelized sugar", "light chocolate", "creamy", "smooth"],
+        "notes": [
+          "caramelized sugar",
+          "light chocolate",
+          "creamy",
+          "smooth"
+        ],
         "body": 3,
         "acidity": 1,
         "sweetness": 4,
         "bitterness": 2,
         "aroma": 3
       },
-      "price_range_thb": { "min": 65, "max": 100, "per_grams": 200 },
-      "where_to_buy": ["7-Eleven", "Big C", "Lotus's", "FamilyMart", "Shopee", "Lazada"],
-      "tags": ["commercial", "blend", "budget-friendly", "widely-available"],
+      "price_range_thb": {
+        "min": 65,
+        "max": 100,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "7-Eleven",
+        "Big C",
+        "Lotus's",
+        "FamilyMart",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "budget-friendly",
+        "widely-available"
+      ],
       "rating": 3.7,
       "rating_count": 890,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "instant", "3-in-1"]
+      "available_formats": [
+        "ground",
+        "instant",
+        "3-in-1"
+      ]
     },
     {
       "id": "bon-cafe",
       "slug": "bon-cafe",
       "name_en": "Bon Café",
       "name_th": "บอน คาเฟ่",
-      "category": ["commercial", "specialty-adjacent", "blend"],
+      "category": [
+        "commercial",
+        "specialty-adjacent",
+        "blend"
+      ],
       "origin_region": "Northern Thailand",
       "founded": 1988,
       "brand_story": "One of Thailand's longer-standing premium domestic brands, Bon Café bridges the gap between commercial and specialty coffee with higher-grade Thai arabica sourced from northern highland cooperatives.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Well-balanced and nuanced for a commercial brand. Mild fruit brightness, cocoa and walnut midnotes, with a clean, pleasant finish. Good complexity at an accessible price.",
-        "notes": ["mild fruit", "cocoa", "walnut", "clean finish"],
+        "notes": [
+          "mild fruit",
+          "cocoa",
+          "walnut",
+          "clean finish"
+        ],
         "body": 3,
         "acidity": 3,
         "sweetness": 3,
         "bitterness": 3,
         "aroma": 4
       },
-      "price_range_thb": { "min": 110, "max": 180, "per_grams": 200 },
-      "where_to_buy": ["Tops", "Gourmet Market", "Shopee", "Lazada", "specialty stores"],
-      "tags": ["commercial", "blend", "arabica", "premium-commercial"],
+      "price_range_thb": {
+        "min": 110,
+        "max": 180,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Tops",
+        "Gourmet Market",
+        "Shopee",
+        "Lazada",
+        "specialty stores"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "arabica",
+        "premium-commercial"
+      ],
       "rating": 4.0,
       "rating_count": 320,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     },
     {
       "id": "punthai-coffee",
       "slug": "punthai-coffee",
       "name_en": "Punthai Coffee",
       "name_th": "พันธุ์ไทย คอฟฟี่",
-      "category": ["commercial", "blend"],
+      "category": [
+        "commercial",
+        "blend"
+      ],
       "origin_region": "Thailand",
       "founded": 2001,
       "brand_story": "Punthai Coffee is a Thai-operated chain and retail brand that champions locally grown coffee beans, positioning itself as a proudly domestic alternative to international chains. Popular in Bangkok malls.",
-      "roast_levels": ["medium", "dark"],
+      "roast_levels": [
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Rich and robust with Thai-style characteristics. Strong body, dark roast notes of bitter chocolate and roasted grain, designed to pair well with condensed milk in traditional preparation.",
-        "notes": ["bitter chocolate", "roasted grain", "dark caramel", "full body"],
+        "notes": [
+          "bitter chocolate",
+          "roasted grain",
+          "dark caramel",
+          "full body"
+        ],
         "body": 4,
         "acidity": 2,
         "sweetness": 2,
         "bitterness": 4,
         "aroma": 4
       },
-      "price_range_thb": { "min": 90, "max": 150, "per_grams": 200 },
-      "where_to_buy": ["Punthai Coffee outlets", "Tops", "Shopee", "Lazada"],
-      "tags": ["commercial", "blend", "robusta", "Thai-owned"],
+      "price_range_thb": {
+        "min": 90,
+        "max": 150,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Punthai Coffee outlets",
+        "Tops",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "robusta",
+        "Thai-owned"
+      ],
       "rating": 3.8,
       "rating_count": 285,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "drip bag"]
+      "available_formats": [
+        "ground",
+        "drip bag"
+      ]
     },
     {
       "id": "mezzox",
       "slug": "mezzox",
       "name_en": "MezzoX",
       "name_th": "เมซโซ่ เอ็กซ์",
-      "category": ["commercial", "specialty-adjacent", "blend"],
+      "category": [
+        "commercial",
+        "specialty-adjacent",
+        "blend"
+      ],
       "origin_region": "Thailand / Imported Blend",
       "founded": 2010,
       "brand_story": "MezzoX is a growing Thai café chain with a retail ground coffee line that targets young urban professionals. Their blends use a mix of Thai arabica and imported beans for a consistent espresso-forward taste.",
-      "roast_levels": ["medium", "dark", "espresso"],
+      "roast_levels": [
+        "medium",
+        "dark",
+        "espresso"
+      ],
       "flavor_profile": {
         "description": "Espresso-focused profile. Dark and syrupy with notes of dark chocolate, brown sugar, and a hint of dried fruit. Designed for espresso machines and moka pots.",
-        "notes": ["dark chocolate", "brown sugar", "dried fruit", "syrupy"],
+        "notes": [
+          "dark chocolate",
+          "brown sugar",
+          "dried fruit",
+          "syrupy"
+        ],
         "body": 4,
         "acidity": 2,
         "sweetness": 3,
         "bitterness": 4,
         "aroma": 4
       },
-      "price_range_thb": { "min": 130, "max": 200, "per_grams": 200 },
-      "where_to_buy": ["MezzoX outlets", "Shopee", "Lazada", "their online store"],
-      "tags": ["commercial", "blend", "espresso", "urban"],
+      "price_range_thb": {
+        "min": 130,
+        "max": 200,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "MezzoX outlets",
+        "Shopee",
+        "Lazada",
+        "their online store"
+      ],
+      "tags": [
+        "commercial",
+        "blend",
+        "espresso",
+        "urban"
+      ],
       "rating": 3.9,
       "rating_count": 190,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "whole bean", "espresso pods"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "espresso pods"
+      ]
     },
     {
       "id": "doi-tung",
       "slug": "doi-tung",
       "name_en": "Doi Tung",
       "name_th": "ดอยตุง",
-      "category": ["specialty", "single-origin", "arabica"],
+      "category": [
+        "specialty",
+        "single-origin",
+        "arabica"
+      ],
       "origin_region": "Doi Tung, Chiang Rai (Royal Project)",
       "founded": 1988,
       "brand_story": "A product of the Mae Fah Luang Foundation under the Royal Initiative of H.R.H. Princess Srinagarindra. Doi Tung coffee is grown on the slopes of Doi Tung mountain, replacing opium cultivation with sustainable highland arabica of exceptional quality.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Elegant and refined. Floral aromatics with honey sweetness, gentle stone fruit acidity, and a silky, lingering finish. One of Thailand's most celebrated single-origin coffees.",
-        "notes": ["honey", "jasmine", "peach", "silky finish"],
+        "notes": [
+          "honey",
+          "jasmine",
+          "peach",
+          "silky finish"
+        ],
         "body": 3,
         "acidity": 4,
         "sweetness": 4,
         "bitterness": 2,
         "aroma": 5
       },
-      "price_range_thb": { "min": 220, "max": 380, "per_grams": 200 },
-      "where_to_buy": ["Doi Tung shops", "Doi Tung Development Project outlets", "major airports", "Tops Gourmet", "Shopee", "Lazada"],
-      "tags": ["specialty", "single-origin", "arabica", "royal-project", "sustainable", "award-winning"],
+      "price_range_thb": {
+        "min": 220,
+        "max": 380,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Doi Tung shops",
+        "Doi Tung Development Project outlets",
+        "major airports",
+        "Tops Gourmet",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "royal-project",
+        "sustainable",
+        "award-winning"
+      ],
       "rating": 4.6,
       "rating_count": 780,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.doitung.org",
-      "available_formats": ["ground", "whole bean", "drip bag", "gift sets"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag",
+        "gift sets"
+      ]
     },
     {
       "id": "wawee-coffee",
       "slug": "wawee-coffee",
       "name_en": "Wawee Coffee",
       "name_th": "วาวี คอฟฟี่",
-      "category": ["commercial", "specialty-adjacent", "arabica"],
+      "category": [
+        "commercial",
+        "specialty-adjacent",
+        "arabica"
+      ],
       "origin_region": "Chiang Mai / Northern Thailand",
       "founded": 1998,
       "brand_story": "Born in Chiang Mai, Wawee Coffee has grown into one of northern Thailand's beloved café chains, using arabica from highland communities near Chiang Mai. Their retail ground coffee carries the fresh, approachable character of northern Thai coffee culture.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Bright and food-friendly. Light-to-medium roast highlights sweet almond, mild caramel, and gentle citrus notes. Works beautifully as black coffee or with milk.",
-        "notes": ["almond", "caramel", "mild citrus", "clean body"],
+        "notes": [
+          "almond",
+          "caramel",
+          "mild citrus",
+          "clean body"
+        ],
         "body": 3,
         "acidity": 3,
         "sweetness": 3,
         "bitterness": 2,
         "aroma": 4
       },
-      "price_range_thb": { "min": 120, "max": 200, "per_grams": 200 },
-      "where_to_buy": ["Wawee Coffee outlets", "Central Food Hall", "Shopee", "Lazada"],
-      "tags": ["commercial", "arabica", "northern-thai", "café-chain", "Chiang Mai"],
+      "price_range_thb": {
+        "min": 120,
+        "max": 200,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Wawee Coffee outlets",
+        "Central Food Hall",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "commercial",
+        "arabica",
+        "northern-thai",
+        "café-chain",
+        "Chiang Mai"
+      ],
       "rating": 4.1,
       "rating_count": 560,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.waweecoffee.com",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     },
     {
       "id": "akha-ama",
       "slug": "akha-ama",
       "name_en": "Akha Ama Coffee",
       "name_th": "อาข่า อ่ามา คอฟฟี่",
-      "category": ["specialty", "single-origin", "arabica"],
+      "category": [
+        "specialty",
+        "single-origin",
+        "arabica"
+      ],
       "origin_region": "Maejantai Village, Chiang Mai",
       "founded": 2010,
       "brand_story": "Founded by Lee Ayu Chuepa, an Akha tribesman from Maejantai village, Akha Ama directly sources exceptional arabica from his own community. A global specialty coffee benchmark that put Thai specialty coffee on the world map.",
-      "roast_levels": ["light", "medium"],
+      "roast_levels": [
+        "light",
+        "medium"
+      ],
       "flavor_profile": {
         "description": "Complex and terroir-driven. Expect vibrant fruit-forward acidity — red berries, plum, or passion fruit depending on the lot — with delicate floral notes and a clean, lingering sweetness. Exceptional clarity.",
-        "notes": ["red berries", "plum", "passion fruit", "floral", "lingering sweetness"],
+        "notes": [
+          "red berries",
+          "plum",
+          "passion fruit",
+          "floral",
+          "lingering sweetness"
+        ],
         "body": 2,
         "acidity": 5,
         "sweetness": 4,
         "bitterness": 1,
         "aroma": 5
       },
-      "price_range_thb": { "min": 350, "max": 650, "per_grams": 200 },
-      "where_to_buy": ["Akha Ama café (Chiang Mai)", "their website", "select specialty stores Bangkok", "Shopee"],
-      "tags": ["specialty", "single-origin", "arabica", "direct-trade", "award-winning", "tribe-owned", "Chiang Mai"],
+      "price_range_thb": {
+        "min": 350,
+        "max": 650,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Akha Ama café (Chiang Mai)",
+        "their website",
+        "select specialty stores Bangkok",
+        "Shopee"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "direct-trade",
+        "award-winning",
+        "tribe-owned",
+        "Chiang Mai"
+      ],
       "rating": 4.8,
       "rating_count": 420,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.akhaamacoffee.com",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     },
     {
       "id": "hillkoff",
       "slug": "hillkoff",
       "name_en": "Hillkoff",
       "name_th": "ฮิลล์คอฟฟ์",
-      "category": ["specialty", "arabica", "blend", "single-origin"],
+      "category": [
+        "specialty",
+        "arabica",
+        "blend",
+        "single-origin"
+      ],
       "origin_region": "Northern Thailand Highlands",
       "founded": 2003,
       "brand_story": "Hillkoff is Thailand's leading specialty coffee supplier and exporter, working directly with highland arabica growers across northern Thailand. Trusted by cafés and restaurants nationwide for consistent quality and ethical sourcing.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Versatile and well-crafted. Their house blends offer balanced caramel and mild fruit notes, while single-origin offerings show distinct terroir. Reliable quality across all roast levels.",
-        "notes": ["caramel", "mild fruit", "balanced body", "clean finish"],
+        "notes": [
+          "caramel",
+          "mild fruit",
+          "balanced body",
+          "clean finish"
+        ],
         "body": 3,
         "acidity": 3,
         "sweetness": 3,
         "bitterness": 3,
         "aroma": 4
       },
-      "price_range_thb": { "min": 180, "max": 420, "per_grams": 200 },
-      "where_to_buy": ["Hillkoff website", "select specialty stores", "Shopee", "Lazada", "B2B wholesale"],
-      "tags": ["specialty", "arabica", "northern-thai", "supplier", "blend", "single-origin"],
+      "price_range_thb": {
+        "min": 180,
+        "max": 420,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Hillkoff website",
+        "select specialty stores",
+        "Shopee",
+        "Lazada",
+        "B2B wholesale"
+      ],
+      "tags": [
+        "specialty",
+        "arabica",
+        "northern-thai",
+        "supplier",
+        "blend",
+        "single-origin"
+      ],
       "rating": 4.3,
       "rating_count": 310,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.hillkoff.com",
-      "available_formats": ["ground", "whole bean", "drip bag", "bulk"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag",
+        "bulk"
+      ]
     },
     {
       "id": "doi-chaang",
       "slug": "doi-chaang",
       "name_en": "Doi Chaang Coffee",
       "name_th": "ดอยช้าง คอฟฟี่",
-      "category": ["specialty", "single-origin", "arabica"],
+      "category": [
+        "specialty",
+        "single-origin",
+        "arabica"
+      ],
       "origin_region": "Doi Chang Village, Chiang Rai",
       "founded": 2003,
       "brand_story": "A Canada-Thailand partnership with the Akha and Lisu hill tribes of Doi Chang village. One of Thailand's most internationally recognized single-origin coffees, sold in over 30 countries. Growers hold equity in the company.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Distinctly Thai highland character. Sweet and aromatic with notes of dark honey, cedar, and dark cherry. Medium body with soft, integrated acidity and a long, pleasant finish.",
-        "notes": ["dark honey", "cedar", "dark cherry", "soft acidity"],
+        "notes": [
+          "dark honey",
+          "cedar",
+          "dark cherry",
+          "soft acidity"
+        ],
         "body": 3,
         "acidity": 3,
         "sweetness": 4,
         "bitterness": 2,
         "aroma": 5
       },
-      "price_range_thb": { "min": 280, "max": 480, "per_grams": 200 },
-      "where_to_buy": ["Doi Chaang cafés", "Tops Gourmet", "select specialty stores", "Shopee", "Lazada", "international retailers"],
-      "tags": ["specialty", "single-origin", "arabica", "direct-trade", "award-winning", "Chiang Rai", "tribal-equity"],
+      "price_range_thb": {
+        "min": 280,
+        "max": 480,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Doi Chaang cafés",
+        "Tops Gourmet",
+        "select specialty stores",
+        "Shopee",
+        "Lazada",
+        "international retailers"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "direct-trade",
+        "award-winning",
+        "Chiang Rai",
+        "tribal-equity"
+      ],
       "rating": 4.6,
       "rating_count": 650,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.doichaangcoffee.com",
-      "available_formats": ["ground", "whole bean", "drip bag", "gift sets"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag",
+        "gift sets"
+      ]
     },
     {
       "id": "bluekoff",
       "slug": "bluekoff",
       "name_en": "Bluekoff",
       "name_th": "บลูคอฟฟ์",
-      "category": ["specialty", "arabica", "single-origin"],
+      "category": [
+        "specialty",
+        "arabica",
+        "single-origin"
+      ],
       "origin_region": "Northern Thailand / Chiang Rai / Chiang Mai",
       "founded": 2008,
       "brand_story": "Bluekoff is a Bangkok-based specialty roaster and retailer that sources arabica from across northern Thailand's highlands. Known for consistent quality, accessibility, and a broad portfolio of single-origins and blends.",
-      "roast_levels": ["light", "medium", "dark"],
+      "roast_levels": [
+        "light",
+        "medium",
+        "dark"
+      ],
       "flavor_profile": {
         "description": "Clear and approachable specialty profile. Depending on the lot: sweet citrus, light brown sugar, and mild floral notes in lighter roasts. Darker roasts offer chocolate and nuts with low bitterness.",
-        "notes": ["sweet citrus", "brown sugar", "floral", "chocolate", "nuts"],
+        "notes": [
+          "sweet citrus",
+          "brown sugar",
+          "floral",
+          "chocolate",
+          "nuts"
+        ],
         "body": 3,
         "acidity": 3,
         "sweetness": 3,
         "bitterness": 2,
         "aroma": 4
       },
-      "price_range_thb": { "min": 200, "max": 380, "per_grams": 200 },
-      "where_to_buy": ["Bluekoff website", "Shopee", "Lazada", "select specialty stores Bangkok"],
-      "tags": ["specialty", "arabica", "single-origin", "Bangkok-based", "accessible"],
+      "price_range_thb": {
+        "min": 200,
+        "max": 380,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Bluekoff website",
+        "Shopee",
+        "Lazada",
+        "select specialty stores Bangkok"
+      ],
+      "tags": [
+        "specialty",
+        "arabica",
+        "single-origin",
+        "Bangkok-based",
+        "accessible"
+      ],
       "rating": 4.3,
       "rating_count": 480,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.bluekoff.com",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     },
     {
       "id": "ceresia",
       "slug": "ceresia",
       "name_en": "Ceresia Coffee Roasters",
       "name_th": "เซเรเซีย คอฟฟี่ โรสเตอร์ส",
-      "category": ["specialty", "arabica", "single-origin"],
+      "category": [
+        "specialty",
+        "arabica",
+        "single-origin"
+      ],
       "origin_region": "Bangkok (roasting) / Multiple Thai Origins",
       "founded": 2013,
       "brand_story": "Ceresia is one of Bangkok's most respected specialty roasters, operating a flagship café-roastery. They source meticulously from Thai highlands and international origins, emphasizing transparency and traceability in every cup.",
-      "roast_levels": ["light", "medium"],
+      "roast_levels": [
+        "light",
+        "medium"
+      ],
       "flavor_profile": {
         "description": "Precision roasted for clarity and nuance. Thai offerings show distinct terroir — jasmine, lychee, and bergamot notes with vibrant acidity and a tea-like delicacy. A showcase of what Thai arabica can achieve.",
-        "notes": ["jasmine", "lychee", "bergamot", "tea-like", "vibrant acidity"],
+        "notes": [
+          "jasmine",
+          "lychee",
+          "bergamot",
+          "tea-like",
+          "vibrant acidity"
+        ],
         "body": 2,
         "acidity": 5,
         "sweetness": 4,
         "bitterness": 1,
         "aroma": 5
       },
-      "price_range_thb": { "min": 380, "max": 700, "per_grams": 200 },
-      "where_to_buy": ["Ceresia café Bangkok", "their website", "select specialty stores", "Shopee"],
-      "tags": ["specialty", "single-origin", "arabica", "craft-roaster", "Bangkok", "premium", "award-winning"],
+      "price_range_thb": {
+        "min": 380,
+        "max": 700,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Ceresia café Bangkok",
+        "their website",
+        "select specialty stores",
+        "Shopee"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "craft-roaster",
+        "Bangkok",
+        "premium",
+        "award-winning"
+      ],
       "rating": 4.7,
       "rating_count": 290,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.ceresiacoffee.com",
-      "available_formats": ["ground", "whole bean"]
+      "available_formats": [
+        "ground",
+        "whole bean"
+      ]
     },
     {
       "id": "roots-coffee",
       "slug": "roots-coffee",
       "name_en": "Roots Coffee Roaster",
       "name_th": "รูทส์ คอฟฟี่",
-      "category": ["specialty", "arabica", "single-origin"],
+      "category": [
+        "specialty",
+        "arabica",
+        "single-origin"
+      ],
       "origin_region": "Bangkok (roasting) / Northern Thailand + Imports",
       "founded": 2012,
       "brand_story": "A pioneering Bangkok specialty roaster that helped spark Thailand's third-wave coffee movement. Roots sources from exceptional Thai highlands and global origins, roasting each to highlight origin character over process.",
-      "roast_levels": ["light", "medium"],
+      "roast_levels": [
+        "light",
+        "medium"
+      ],
       "flavor_profile": {
         "description": "Third-wave precision. Expect elegant brightness, nuanced fruit complexity — often apricot, tamarind, or black currant — with a refined structure and persistent sweetness. Consistently impressive Thai single-origins.",
-        "notes": ["apricot", "tamarind", "black currant", "brightness", "persistent sweetness"],
+        "notes": [
+          "apricot",
+          "tamarind",
+          "black currant",
+          "brightness",
+          "persistent sweetness"
+        ],
         "body": 2,
         "acidity": 5,
         "sweetness": 4,
         "bitterness": 1,
         "aroma": 5
       },
-      "price_range_thb": { "min": 350, "max": 680, "per_grams": 200 },
-      "where_to_buy": ["Roots Coffee cafés Bangkok", "their website", "Shopee"],
-      "tags": ["specialty", "single-origin", "arabica", "craft-roaster", "Bangkok", "premium", "third-wave"],
+      "price_range_thb": {
+        "min": 350,
+        "max": 680,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Roots Coffee cafés Bangkok",
+        "their website",
+        "Shopee"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "craft-roaster",
+        "Bangkok",
+        "premium",
+        "third-wave"
+      ],
       "rating": 4.7,
       "rating_count": 340,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "https://www.rootsbkk.com",
-      "available_formats": ["ground", "whole bean"]
+      "available_formats": [
+        "ground",
+        "whole bean"
+      ]
     },
     {
       "id": "gallery-drip",
       "slug": "gallery-drip",
       "name_en": "Gallery Drip Coffee",
       "name_th": "แกลเลอรี่ ดริปคอฟฟี่",
-      "category": ["specialty", "single-origin", "arabica"],
+      "category": [
+        "specialty",
+        "single-origin",
+        "arabica"
+      ],
       "origin_region": "Curated Thai Single Origins",
       "founded": 2015,
       "brand_story": "Gallery Drip Coffee curates single-origin Thai coffees presented as a rotating 'gallery' of lots — each bag is a distinct artwork of flavor. Focused on transparency, with full farm and processing details on every package.",
-      "roast_levels": ["light", "medium"],
+      "roast_levels": [
+        "light",
+        "medium"
+      ],
       "flavor_profile": {
         "description": "Rotating seasonal lots, each distinct. Thai single-origins often feature: wild honey, dried tropical fruit, gentle herbs, and creamy body depending on processing. Always traceable to specific farms.",
-        "notes": ["wild honey", "dried tropical fruit", "gentle herbs", "creamy"],
+        "notes": [
+          "wild honey",
+          "dried tropical fruit",
+          "gentle herbs",
+          "creamy"
+        ],
         "body": 3,
         "acidity": 4,
         "sweetness": 4,
         "bitterness": 1,
         "aroma": 5
       },
-      "price_range_thb": { "min": 320, "max": 600, "per_grams": 200 },
-      "where_to_buy": ["Gallery Drip website", "select specialty shops", "Shopee", "Lazada"],
-      "tags": ["specialty", "single-origin", "arabica", "curated", "transparent", "seasonal"],
+      "price_range_thb": {
+        "min": 320,
+        "max": 600,
+        "per_grams": 200
+      },
+      "where_to_buy": [
+        "Gallery Drip website",
+        "select specialty shops",
+        "Shopee",
+        "Lazada"
+      ],
+      "tags": [
+        "specialty",
+        "single-origin",
+        "arabica",
+        "curated",
+        "transparent",
+        "seasonal"
+      ],
       "rating": 4.5,
       "rating_count": 180,
-      "images": [],
-      "thumbnail": "",
+      "images": [
+        "product_01.webp",
+        "product_02.webp",
+        "product_03.webp",
+        "product_04.webp",
+        "product_05.webp",
+        "product_06.webp",
+        "product_07.webp",
+        "product_08.webp"
+      ],
+      "thumbnail": "product_01_thumb.webp",
       "website": "",
-      "available_formats": ["ground", "whole bean", "drip bag"]
+      "available_formats": [
+        "ground",
+        "whole bean",
+        "drip bag"
+      ]
     }
   ],
   "meta": {

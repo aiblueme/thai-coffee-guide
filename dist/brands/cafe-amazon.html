@@ -45,9 +45,57 @@
   <div class="brand-hero__inner">
     <div class="brand-hero__image-col">
       
-      <div class="brand-hero__no-image">
-        <span class="no-image-glyph">☕</span>
-        <p>Café Amazon</p>
+      <div class="brand-hero__gallery">
+        <picture>
+          <source srcset="/images/cafe-amazon/product_01.webp" type="image/webp">
+          <img
+            src="/images/cafe-amazon/product_01.webp"
+            alt="Café Amazon ground coffee bag"
+            class="brand-hero__main-img"
+            width="600" height="600"
+          >
+        </picture>
+        
+        <div class="brand-hero__thumbs">
+          
+          <button class="thumb-btn" onclick="setMainImage('/images/cafe-amazon/product_02.webp')" aria-label="View image 2">
+            <img
+              src="/images/cafe-amazon/product_02_thumb.webp"
+              alt="Café Amazon product view 2"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </button>
+          
+          <button class="thumb-btn" onclick="setMainImage('/images/cafe-amazon/product_03.webp')" aria-label="View image 3">
+            <img
+              src="/images/cafe-amazon/product_03_thumb.webp"
+              alt="Café Amazon product view 3"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </button>
+          
+          <button class="thumb-btn" onclick="setMainImage('/images/cafe-amazon/product_04.webp')" aria-label="View image 4">
+            <img
+              src="/images/cafe-amazon/product_04_thumb.webp"
+              alt="Café Amazon product view 4"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </button>
+          
+          <button class="thumb-btn" onclick="setMainImage('/images/cafe-amazon/product_05.webp')" aria-label="View image 5">
+            <img
+              src="/images/cafe-amazon/product_05_thumb.webp"
+              alt="Café Amazon product view 5"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </button>
+          
+        </div>
+        
       </div>
       
     </div>
