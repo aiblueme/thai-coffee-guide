@@ -69,6 +69,10 @@
         return (a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price);
       case 'name':
         return (a, b) => a.dataset.name.localeCompare(b.dataset.name);
+      case 'body-desc':
+        return (a, b) => parseInt(b.dataset.body) - parseInt(a.dataset.body);
+      case 'acidity-desc':
+        return (a, b) => parseInt(b.dataset.acidity) - parseInt(a.dataset.acidity);
       default:
         return (a, b) => parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
     }
@@ -79,8 +83,8 @@
     const select = document.getElementById('sort-by');
     if (col === 'rating') select.value = 'rating';
     else if (col === 'price') select.value = 'price-asc';
-    else if (col === 'body') select.value = 'rating'; // fallback
-    else if (col === 'acidity') select.value = 'rating';
+    else if (col === 'body') select.value = 'body-desc';
+    else if (col === 'acidity') select.value = 'acidity-desc';
     applyFilters();
   };
 

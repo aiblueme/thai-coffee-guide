@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shellnode.lol:8420/sitemap.xml

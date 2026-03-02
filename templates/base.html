@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{% block meta_description %}The definitive buyer's guide to Thai ground coffee — compare brands, flavor profiles, prices, and where to buy.{% endblock %}">
+  <meta property="og:site_name" content="Thai Coffee Ground Guide">
+  <meta property="og:type" content="website">
+  {% block extra_og %}
+  <meta property="og:title" content="{% block og_title %}Thai Ground Coffee Guide{% endblock %}">
+  <meta property="og:description" content="The definitive buyer's guide to Thai ground coffee — 16 brands compared by flavor, price, and origin.">
+  {% endblock %}
   <title>{% block title %}Thai Ground Coffee Guide{% endblock %}</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

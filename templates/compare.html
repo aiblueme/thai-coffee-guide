@@ -7,7 +7,7 @@
 {% block extra_head %}
 <style>
   /* Page-specific overrides for comparison table */
-  .compare-controls { position: sticky; top: 56px; z-index: 50; }
+  .compare-controls { position: sticky; top: var(--header-height); z-index: 50; }
 </style>
 {% endblock %}
 
@@ -62,6 +62,8 @@
           <option value="price-asc">Price (Low→High)</option>
           <option value="price-desc">Price (High→Low)</option>
           <option value="name">Name (A→Z)</option>
+          <option value="body-desc">Body (Heaviest first)</option>
+          <option value="acidity-desc">Acidity (Brightest first)</option>
         </select>
       </div>
       <button class="btn btn--sm btn--ghost" onclick="resetFilters()">Reset</button>
@@ -207,16 +209,16 @@
 {% endblock %}
 
 {% block extra_scripts %}
-<script src="/js/compare.js"></script>
 <script>
-  // Embed brand data for client-side filtering
-  window.COFFEE_DATA = {{ brands_json }};
-
-  // Check URL params for initial filter
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('filter')) {
-    document.getElementById('filter-category').value = params.get('filter');
-    applyFilters();
-  }
+  // Set URL filter BEFORE compare.js loads so first render is already filtered
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var f = params.get('filter');
+    if (f) {
+      var el = document.getElementById('filter-category');
+      if (el) el.value = f;
+    }
+  })();
 </script>
+<script src="/js/compare.js"></script>
 {% endblock %}

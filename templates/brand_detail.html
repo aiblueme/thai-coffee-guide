@@ -1,7 +1,15 @@
 {% extends "base.html" %}
+{% set active_page = "compare" %}
 
 {% block title %}{{ brand.name_en }} ({{ brand.name_th }}) — Thai Coffee Review{% endblock %}
-{% block meta_description %}{{ brand.name_en }} review: {{ brand.flavor_profile.description[:150] }}. Price from ฿{{ brand.price_range_thb.min }}/200g.{% endblock %}
+{% block meta_description %}{{ brand.name_en }} ({{ brand.name_th }}): {{ brand.flavor_profile.description[:120] }} From ฿{{ brand.price_range_thb.min }}/200g.{% endblock %}
+
+{% block extra_og %}
+  <meta property="og:title" content="{{ brand.name_en }} — Thai Coffee Review">
+  <meta property="og:description" content="{{ brand.flavor_profile.description[:200] }}">
+  <meta property="og:type" content="article">
+  {% if brand.images %}<meta property="og:image" content="/images/{{ brand.slug }}/{{ brand.images[0] }}">{% endif %}
+{% endblock %}
 
 {% block content %}
 
@@ -61,7 +69,7 @@
       </div>
 
       <h1 class="brand-hero__name">{{ brand.name_en }}</h1>
-      <p class="brand-hero__name-th">{{ brand.name_th }}</p>
+      <p class="brand-hero__name-th" lang="th">{{ brand.name_th }}</p>
 
       <div class="brand-hero__rating-row">
         <div class="big-rating" aria-label="Rating: {{ brand.rating }} out of 5">
