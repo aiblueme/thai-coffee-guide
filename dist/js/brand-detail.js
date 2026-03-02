@@ -110,8 +110,11 @@
   window.setMainImage = function (src) {
     const mainImg = document.querySelector('.brand-hero__main-img');
     if (mainImg) {
+      // Must update <source srcset> too — browsers prefer it over img.src inside <picture>
+      const source = mainImg.closest('picture') && mainImg.closest('picture').querySelector('source');
       mainImg.style.opacity = '0';
       setTimeout(() => {
+        if (source) source.srcset = src;
         mainImg.src = src;
         mainImg.style.opacity = '1';
       }, 150);
