@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block title %}{{ brand.name_en }} ({{ brand.name_th }}) — Thai Coffee Review{% endblock %}
+{% block meta_description %}{{ brand.name_en }} review: {{ brand.flavor_profile.description[:150] }}. Price from ฿{{ brand.price_range_thb.min }}/200g.{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════════════
+     BRAND HERO
+     ════════════════════════════════════════════════ -->
+<section class="brand-hero">
+  <div class="brand-hero__inner">
+    <div class="brand-hero__image-col">
+      {% if brand.images %}
+      <div class="brand-hero__gallery">
+        <picture>
+          <source srcset="/images/{{ brand.slug }}/{{ brand.images[0] }}" type="image/webp">
+          <img
+            src="/images/{{ brand.slug }}/{{ brand.images[0] }}"
+            alt="{{ brand.name_en }} ground coffee bag"
+            class="brand-hero__main-img"
+            width="600" height="600"
+          >
+        </picture>
+        {% if brand.images|length > 1 %}
+        <div class="brand-hero__thumbs">
+          {% for img in brand.images[1:5] %}
+          <button class="thumb-btn" onclick="setMainImage('/images/{{ brand.slug }}/{{ img }}')" aria-label="View image {{ loop.index + 1 }}">
+            <img
+              src="/images/{{ brand.slug }}/{{ img.replace('.webp', '_thumb.webp') }}"
+              alt="{{ brand.name_en }} product view {{ loop.index + 1 }}"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </button>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% else %}
+      <div class="brand-hero__no-image">
+        <span class="no-image-glyph">☕</span>
+        <p>{{ brand.name_en }}</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="brand-hero__content-col">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true"> / </span>
+        <a href="/compare.html">Compare</a>
+        <span aria-hidden="true"> / </span>
+        <span aria-current="page">{{ brand.name_en }}</span>
+      </nav>
+
+      <div class="brand-hero__tags">
+        {% for tag in brand.tags %}
+        <span class="tag {% if tag == 'specialty' %}tag--specialty{% elif tag == 'commercial' %}tag--commercial{% elif tag == 'single-origin' %}tag--origin{% else %}tag--neutral{% endif %}">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      <h1 class="brand-hero__name">{{ brand.name_en }}</h1>
+      <p class="brand-hero__name-th">{{ brand.name_th }}</p>
+
+      <div class="brand-hero__rating-row">
+        <div class="big-rating" aria-label="Rating: {{ brand.rating }} out of 5">
+          <span class="big-rating__score mono">{{ "%.1f"|format(brand.rating) }}</span>
+          <div class="big-rating__stars" aria-hidden="true">
+            {% set full_stars = brand.rating | int %}
+            {% set has_half = ((brand.rating - full_stars) >= 0.3) %}
+            {% for i in range(5) %}
+              {% if i < full_stars %}
+              <span class="star star--full">★</span>
+              {% elif i == full_stars and has_half %}
+              <span class="star star--half">★</span>
+              {% else %}
+              <span class="star star--empty">☆</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <span class="big-rating__count mono">{{ brand.rating_count }} reviews</span>
+        </div>
+      </div>
+
+      <div class="brand-hero__key-facts">
+        <div class="key-fact">
+          <span class="key-fact__label">Origin</span>
+          <span class="key-fact__value">{{ brand.origin_region }}</span>
+        </div>
+        <div class="key-fact">
+          <span class="key-fact__label">Roast Levels</span>
+          <span class="key-fact__value">
+            {% for roast in brand.roast_levels %}
+            <span class="roast-badge roast-{{ roast }}">{{ roast }}</span>
+            {% endfor %}
+          </span>
+        </div>
+        <div class="key-fact">
+          <span class="key-fact__label">Price Range</span>
+          <span class="key-fact__value mono">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }} / {{ brand.price_range_thb.per_grams }}g</span>
+        </div>
+        {% if brand.founded %}
+        <div class="key-fact">
+          <span class="key-fact__label">Founded</span>
+          <span class="key-fact__value mono">{{ brand.founded }}</span>
+        </div>
+        {% endif %}
+        <div class="key-fact">
+          <span class="key-fact__label">Formats</span>
+          <span class="key-fact__value">{{ brand.available_formats | join(", ") }}</span>
+        </div>
+      </div>
+
+      <p class="brand-hero__story">{{ brand.brand_story }}</p>
+
+      {% if brand.website %}
+      <a href="{{ brand.website }}" class="btn btn--ghost" target="_blank" rel="noopener">Official Website ↗</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FLAVOR ANALYSIS
+     ════════════════════════════════════════════════ -->
+<section class="flavor-section">
+  <div class="container">
+    <div class="flavor-layout">
+
+      <div class="flavor-description">
+        <h2 class="subsection-title">Flavor Profile</h2>
+        <p class="flavor-text">{{ brand.flavor_profile.description }}</p>
+        <div class="flavor-notes-list">
+          <p class="notes-label">Tasting Notes</p>
+          <div class="notes-chips">
+            {% for note in brand.flavor_profile.notes %}
+            <span class="note-chip">{{ note }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="flavor-chart-block">
+        <h2 class="subsection-title">Flavor Breakdown</h2>
+        <div class="flavor-bars">
+          {% set metrics = [
+            ("Body", brand.flavor_profile.body, "How full and thick it feels"),
+            ("Acidity", brand.flavor_profile.acidity, "Brightness and fruit-forward character"),
+            ("Sweetness", brand.flavor_profile.sweetness, "Natural or roasted sweetness"),
+            ("Bitterness", brand.flavor_profile.bitterness, "Roasty, tannic bite"),
+            ("Aroma", brand.flavor_profile.aroma, "Fragrance intensity")
+          ] %}
+          {% for (label, value, description) in metrics %}
+          <div class="flavor-bar-row" title="{{ description }}">
+            <span class="flavor-bar-label">{{ label }}</span>
+            <div class="flavor-bar-track">
+              <div class="flavor-bar-fill flavor-bar-fill--{{ label | lower }}"
+                   style="width: {{ (value / 5 * 100)|int }}%"
+                   aria-valuenow="{{ value }}"
+                   aria-valuemin="0"
+                   aria-valuemax="5"
+                   role="meter"
+                   aria-label="{{ label }}: {{ value }} out of 5">
+              </div>
+            </div>
+            <span class="flavor-bar-score mono">{{ value }}/5</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Spider chart canvas — drawn by brand-detail.js -->
+        <canvas id="flavor-radar" width="280" height="280" aria-label="Flavor radar chart for {{ brand.name_en }}"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     WHERE TO BUY
+     ════════════════════════════════════════════════ -->
+<section class="wtb-section">
+  <div class="container">
+    <h2 class="subsection-title">Where to Buy {{ brand.name_en }}</h2>
+    <div class="wtb-list">
+      {% for place in brand.where_to_buy %}
+      <div class="wtb-item">
+        <span class="wtb-dot">◆</span>
+        <span class="wtb-place">{{ place }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if brand.website %}
+    <div class="wtb-official">
+      <p>For the freshest stock and full product range:</p>
+      <a href="{{ brand.website }}" class="btn btn--primary" target="_blank" rel="noopener">Shop Official Website ↗</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BACK NAVIGATION + RELATED
+     ════════════════════════════════════════════════ -->
+<section class="brand-nav-section">
+  <div class="container">
+    <div class="brand-nav-inner">
+      {% if prev_brand %}
+      <a href="/brands/{{ prev_brand.slug }}.html" class="brand-nav-link brand-nav-link--prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-brand-name">{{ prev_brand.name_en }}</span>
+      </a>
+      {% else %}
+      <div></div>
+      {% endif %}
+      <a href="/compare.html" class="btn btn--ghost">View All Brands</a>
+      {% if next_brand %}
+      <a href="/brands/{{ next_brand.slug }}.html" class="brand-nav-link brand-nav-link--next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-brand-name">{{ next_brand.name_en }}</span>
+      </a>
+      {% else %}
+      <div></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Flavor data for radar chart
+window.FLAVOR_DATA = {
+  labels: ['Body', 'Acidity', 'Sweetness', 'Bitterness', 'Aroma'],
+  values: [
+    {{ brand.flavor_profile.body }},
+    {{ brand.flavor_profile.acidity }},
+    {{ brand.flavor_profile.sweetness }},
+    {{ brand.flavor_profile.bitterness }},
+    {{ brand.flavor_profile.aroma }}
+  ],
+  brandName: {{ brand.name_en | tojson }}
+};
+</script>
+<script src="/js/brand-detail.js"></script>
+{% endblock %}

@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+
+{% block title %}Thai Ground Coffee Guide — Compare Thailand's Best Brands{% endblock %}
+{% block meta_description %}Compare 16 Thai ground coffee brands by flavor, roast, price, and origin. From iconic Khao Shong to specialty Akha Ama — find your cup.{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════════════
+     EDITORIAL HERO — full-width, no generic gradient
+     ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-text-block">
+    <p class="hero-kicker">The Definitive Guide · Updated 2026</p>
+    <h1 class="hero-headline">Thailand's<br><em>Ground Coffee</em><br>Ranked &amp; Compared</h1>
+    <p class="hero-body">From the bold robusta of Khao Shong to the floral arabica of Akha Ama — {{ brands|length }} brands, every roast level, every price point. Find your cup.</p>
+    <div class="hero-actions">
+      <a href="/compare.html" class="btn btn--primary">Compare All Brands</a>
+      <a href="/guide.html" class="btn btn--ghost">How to Choose</a>
+    </div>
+  </div>
+  <div class="hero-stat-block">
+    <div class="hero-stat">
+      <span class="stat-number">{{ brands|length }}</span>
+      <span class="stat-label">Brands Reviewed</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-number">฿65–700</span>
+      <span class="stat-label">Price Range / 200g</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Roast Levels</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-number">8</span>
+      <span class="stat-label">Regions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORY DIVIDER — editorial context strip
+     ════════════════════════════════════════════════ -->
+<section class="category-strip">
+  <div class="container">
+    <div class="strip-inner">
+      <div class="strip-item">
+        <span class="strip-icon">◆</span>
+        <span>Specialty &amp; Craft</span>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">◆</span>
+        <span>Commercial &amp; Accessible</span>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">◆</span>
+        <span>Northern Highlands · Chiang Rai · Chiang Mai</span>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">◆</span>
+        <span>Royal Project Beans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FEATURED SPECIALTY BRANDS — editorial layout
+     ════════════════════════════════════════════════ -->
+<section class="section-editorial">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-eyebrow">Specialty &amp; Craft</span>
+      <h2 class="section-title">The Craft Tier</h2>
+      <p class="section-desc">Single-origins, direct-trade sourcing, and precision roasting from Thailand's best highland terroirs.</p>
+    </header>
+
+    <div class="editorial-grid">
+      {% set specialty_brands = brands | selectattr("category", "contains", "specialty") | sort(attribute="rating", reverse=true) | list %}
+      {% for brand in specialty_brands[:3] %}
+      <article class="brand-card brand-card--featured">
+        <a href="/brands/{{ brand.slug }}.html" class="brand-card__image-link">
+          {% if brand.thumbnail %}
+          <picture>
+            <source srcset="/images/{{ brand.slug }}/{{ brand.thumbnail }}" type="image/webp">
+            <img
+              src="/images/{{ brand.slug }}/{{ brand.thumbnail }}"
+              alt="{{ brand.name_en }} coffee bag"
+              class="brand-card__img"
+              loading="lazy"
+              width="300" height="300"
+            >
+          </picture>
+          {% else %}
+          <div class="brand-card__img-placeholder" aria-hidden="true">
+            <span class="placeholder-glyph">☕</span>
+          </div>
+          {% endif %}
+        </a>
+        <div class="brand-card__body">
+          <div class="brand-card__meta">
+            <span class="tag tag--specialty">Specialty</span>
+            {% if "single-origin" in brand.tags %}
+            <span class="tag tag--origin">Single Origin</span>
+            {% endif %}
+          </div>
+          <h3 class="brand-card__name">
+            <a href="/brands/{{ brand.slug }}.html">{{ brand.name_en }}</a>
+          </h3>
+          <p class="brand-card__name-th">{{ brand.name_th }}</p>
+          <p class="brand-card__origin">{{ brand.origin_region }}</p>
+          <p class="brand-card__story">{{ brand.brand_story }}</p>
+          <div class="brand-card__footer">
+            <div class="brand-rating" aria-label="Rating: {{ brand.rating }} out of 5">
+              <span class="rating-score mono">{{ "%.1f"|format(brand.rating) }}</span>
+              <div class="rating-bar">
+                <div class="rating-fill" style="width: {{ (brand.rating / 5 * 100)|int }}%"></div>
+              </div>
+              <span class="rating-count mono">{{ brand.rating_count }} reviews</span>
+            </div>
+            <span class="brand-price mono">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- Secondary specialty grid -->
+    {% if specialty_brands|length > 3 %}
+    <div class="secondary-grid">
+      {% for brand in specialty_brands[3:] %}
+      <article class="brand-card brand-card--compact">
+        <a href="/brands/{{ brand.slug }}.html" class="brand-card__compact-inner">
+          {% if brand.thumbnail %}
+          <picture>
+            <img
+              src="/images/{{ brand.slug }}/{{ brand.thumbnail }}"
+              alt="{{ brand.name_en }}"
+              class="brand-card__compact-img"
+              loading="lazy"
+              width="80" height="80"
+            >
+          </picture>
+          {% else %}
+          <div class="compact-img-placeholder" aria-hidden="true">☕</div>
+          {% endif %}
+          <div class="brand-card__compact-body">
+            <div class="compact-tags">
+              {% for tag in brand.tags[:2] %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <h3 class="compact-name">{{ brand.name_en }}</h3>
+            <p class="compact-name-th">{{ brand.name_th }}</p>
+            <div class="compact-meta">
+              <span class="mono compact-rating">{{ "%.1f"|format(brand.rating) }} / 5</span>
+              <span class="mono compact-price">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     EDITORIAL BREAK — Flavor Spectrum callout
+     ════════════════════════════════════════════════ -->
+<section class="flavor-callout">
+  <div class="flavor-callout__inner">
+    <div class="flavor-callout__text">
+      <p class="flavor-callout__kicker">Understanding Thai Coffee</p>
+      <h2 class="flavor-callout__title">From Mountain Arabica<br>to Southern Robusta</h2>
+      <p class="flavor-callout__body">Thailand's coffee-growing regions produce strikingly different cups. Northern highland arabica from Chiang Rai and Chiang Mai offers floral, fruit-forward brightness. Southern robusta from Surat Thani delivers the bold, earthy punch of classic Thai coffee shop culture.</p>
+      <a href="/guide.html" class="btn btn--outline-light">Read the Buyer's Guide</a>
+    </div>
+    <div class="flavor-spectrum">
+      <div class="spectrum-row">
+        <span class="spectrum-label">Body</span>
+        <div class="spectrum-bar-container">
+          <div class="spectrum-pole spectrum-pole--light" title="Light (Specialty)">Specialty</div>
+          <div class="spectrum-gradient"></div>
+          <div class="spectrum-pole spectrum-pole--dark" title="Full (Commercial)">Commercial</div>
+        </div>
+      </div>
+      <div class="spectrum-row">
+        <span class="spectrum-label">Acidity</span>
+        <div class="spectrum-bar-container">
+          <div class="spectrum-pole spectrum-pole--light">High</div>
+          <div class="spectrum-gradient"></div>
+          <div class="spectrum-pole spectrum-pole--dark">Low</div>
+        </div>
+      </div>
+      <div class="spectrum-row">
+        <span class="spectrum-label">Price/200g</span>
+        <div class="spectrum-bar-container">
+          <div class="spectrum-pole spectrum-pole--light mono">฿65</div>
+          <div class="spectrum-gradient"></div>
+          <div class="spectrum-pole spectrum-pole--dark mono">฿700</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     COMMERCIAL BRANDS SECTION
+     ════════════════════════════════════════════════ -->
+<section class="section-editorial section-editorial--alt">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-eyebrow">Commercial &amp; Widely Available</span>
+      <h2 class="section-title">Everyday Thai Coffee</h2>
+      <p class="section-desc">Bold, reliable, and found everywhere from 7-Eleven to Makro. These are the coffees that built Thai coffee culture.</p>
+    </header>
+
+    <div class="commercial-layout">
+      {% set commercial_brands = brands | selectattr("category", "contains", "commercial") | sort(attribute="rating", reverse=true) | list %}
+      {% for brand in commercial_brands %}
+      <article class="brand-row">
+        <div class="brand-row__rank mono">{{ "%02d"|format(loop.index) }}</div>
+        <div class="brand-row__image">
+          {% if brand.thumbnail %}
+          <img
+            src="/images/{{ brand.slug }}/{{ brand.thumbnail }}"
+            alt="{{ brand.name_en }}"
+            class="brand-row__img"
+            loading="lazy"
+            width="60" height="60"
+          >
+          {% else %}
+          <div class="brand-row__img-placeholder">☕</div>
+          {% endif %}
+        </div>
+        <div class="brand-row__content">
+          <h3 class="brand-row__name">
+            <a href="/brands/{{ brand.slug }}.html">{{ brand.name_en }}</a>
+            <span class="brand-row__name-th">{{ brand.name_th }}</span>
+          </h3>
+          <div class="brand-row__tags">
+            {% for tag in brand.tags[:3] %}
+            <span class="tag tag--sm">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="brand-row__stats">
+          <div class="stat-cell">
+            <span class="stat-cell__value mono">{{ "%.1f"|format(brand.rating) }}</span>
+            <span class="stat-cell__label">Rating</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-cell__value mono">฿{{ brand.price_range_thb.min }}</span>
+            <span class="stat-cell__label">From</span>
+          </div>
+        </div>
+        <div class="brand-row__action">
+          <a href="/brands/{{ brand.slug }}.html" class="btn btn--sm">Details</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     WHERE TO BUY QUICK REFERENCE
+     ════════════════════════════════════════════════ -->
+<section class="where-to-buy-section">
+  <div class="container">
+    <h2 class="section-title">Where to Find Thai Coffee</h2>
+    <div class="wtb-grid">
+      <div class="wtb-card">
+        <div class="wtb-icon">🏪</div>
+        <h3>Convenience Stores</h3>
+        <p>7-Eleven and FamilyMart stock commercial staples: Khao Shong, Birdy, Café Amazon. Grab-and-go drip bags are common.</p>
+        <p class="wtb-brands mono">Khao Shong · Birdy · Café Amazon</p>
+      </div>
+      <div class="wtb-card">
+        <div class="wtb-icon">🛒</div>
+        <h3>Supermarkets</h3>
+        <p>Big C, Lotus's, Tops, and Makro carry the broadest range — from budget blends to premium highland arabica.</p>
+        <p class="wtb-brands mono">All commercial brands · Doi Tung · Wawee</p>
+      </div>
+      <div class="wtb-card">
+        <div class="wtb-icon">📦</div>
+        <h3>Online: Shopee &amp; Lazada</h3>
+        <p>Best selection and prices for specialty brands. Look for official brand shops and check reviews for freshness.</p>
+        <p class="wtb-brands mono">All brands · Best for specialty</p>
+      </div>
+      <div class="wtb-card">
+        <div class="wtb-icon">☕</div>
+        <h3>Brand Cafés &amp; Roasteries</h3>
+        <p>Visit Akha Ama (Chiang Mai), Ceresia or Roots (Bangkok), or Doi Tung shops for the freshest retail bags.</p>
+        <p class="wtb-brands mono">Akha Ama · Ceresia · Roots · Doi Tung</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CTA TO COMPARE
+     ════════════════════════════════════════════════ -->
+<section class="compare-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Compare?</h2>
+        <p>Sort by price, filter by roast level, and find your perfect Thai ground coffee in the full comparison table.</p>
+      </div>
+      <a href="/compare.html" class="btn btn--primary btn--large">Open Comparison Table</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

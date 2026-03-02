@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Side-by-side comparison of 16 Thai ground coffee brands. Filter by roast level, price, and category. Sort by rating or price.">
+  <title>Compare Thai Ground Coffee Brands — Full Table</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts: Editorial serif + Thai support -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+<style>
+  /* Page-specific overrides for comparison table */
+  .compare-controls { position: sticky; top: 56px; z-index: 50; }
+</style>
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <span class="logo-mark">&#9679;</span>
+        <span class="logo-text">Thai Coffee<br><em>Ground Guide</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/" class="nav-link ">Overview</a>
+        <a href="/compare.html" class="nav-link nav-link--active">Compare</a>
+        <a href="/guide.html" class="nav-link ">Buyer's Guide</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    
+
+<div class="page-header page-header--compare">
+  <div class="container">
+    <p class="page-eyebrow">Full Comparison</p>
+    <h1 class="page-title">16 Thai Ground Coffees<br>Side by Side</h1>
+    <p class="page-subtitle">Filter, sort, and compare by flavor, price, roast, and origin. All brands, one table.</p>
+  </div>
+</div>
+
+<!-- Controls bar -->
+<div class="compare-controls">
+  <div class="container">
+    <div class="controls-inner">
+      <div class="filter-group">
+        <label class="filter-label" for="filter-category">Category</label>
+        <select id="filter-category" class="filter-select" onchange="applyFilters()">
+          <option value="">All</option>
+          <option value="specialty">Specialty</option>
+          <option value="commercial">Commercial</option>
+          <option value="single-origin">Single Origin</option>
+          <option value="blend">Blend</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-roast">Roast Level</label>
+        <select id="filter-roast" class="filter-select" onchange="applyFilters()">
+          <option value="">All Roasts</option>
+          <option value="light">Light</option>
+          <option value="medium">Medium</option>
+          <option value="dark">Dark</option>
+          <option value="espresso">Espresso</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-price">Max Price (฿/200g)</label>
+        <select id="filter-price" class="filter-select" onchange="applyFilters()">
+          <option value="">Any Price</option>
+          <option value="100">Under ฿100</option>
+          <option value="200">Under ฿200</option>
+          <option value="350">Under ฿350</option>
+          <option value="700">Under ฿700</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="sort-by">Sort By</label>
+        <select id="sort-by" class="filter-select" onchange="applyFilters()">
+          <option value="rating">Rating (High→Low)</option>
+          <option value="price-asc">Price (Low→High)</option>
+          <option value="price-desc">Price (High→Low)</option>
+          <option value="name">Name (A→Z)</option>
+        </select>
+      </div>
+      <button class="btn btn--sm btn--ghost" onclick="resetFilters()">Reset</button>
+    </div>
+    <div class="results-count">
+      <span id="results-count">16</span> brands shown
+    </div>
+  </div>
+</div>
+
+<!-- Comparison Table -->
+<div class="container container--wide">
+  <div class="table-scroll-wrapper">
+    <table class="compare-table" id="compare-table">
+      <thead>
+        <tr>
+          <th class="col-brand sticky-col" scope="col">Brand</th>
+          <th class="col-origin" scope="col">Origin</th>
+          <th class="col-category" scope="col">Category</th>
+          <th class="col-roast" scope="col">Roast Levels</th>
+          <th class="col-flavor" scope="col">Flavor Profile</th>
+          <th class="col-body" scope="col">
+            <button class="sort-btn" onclick="sortTable('body')" title="Sort by body">Body <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-acidity" scope="col">
+            <button class="sort-btn" onclick="sortTable('acidity')" title="Sort by acidity">Acidity <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-price" scope="col">
+            <button class="sort-btn" onclick="sortTable('price')" title="Sort by price">Price/200g <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-rating" scope="col">
+            <button class="sort-btn sort-btn--active" onclick="sortTable('rating')" title="Sort by rating">Rating <span class="sort-indicator">↓</span></button>
+          </th>
+          <th class="col-buy" scope="col">Buy At</th>
+          <th class="col-details" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="compare-tbody">
+        
+        <tr class="brand-row-tr"
+            data-brand-id="akha-ama"
+            data-category="specialty single-origin arabica"
+            data-roast="light medium"
+            data-price="350"
+            data-rating="4.8"
+            data-body="2"
+            data-acidity="5"
+            data-name="Akha Ama Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/akha-ama.html" class="table-brand-name-en">Akha Ama Coffee</a>
+                <span class="table-brand-name-th">อาข่า อ่ามา คอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Maejantai Village, Chiang Mai</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">single-origin</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">red berries · plum · passion fruit</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 2 / 5">
+              <div class="mini-bar" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 5 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 100%"></div>
+            </div>
+            <span class="mini-score mono">5/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿350–650</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.8</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 96%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Akha Ama café (Chiang Mai)</span>
+              
+              <span class="buy-tag">their website</span>
+              
+              <span class="buy-tag">select specialty stores Bangkok</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/akha-ama.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="ceresia"
+            data-category="specialty arabica single-origin"
+            data-roast="light medium"
+            data-price="380"
+            data-rating="4.7"
+            data-body="2"
+            data-acidity="5"
+            data-name="Ceresia Coffee Roasters">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/ceresia.html" class="table-brand-name-en">Ceresia Coffee Roasters</a>
+                <span class="table-brand-name-th">เซเรเซีย คอฟฟี่ โรสเตอร์ส</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Bangkok (roasting) / Multiple Thai Origins</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">arabica</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">jasmine · lychee · bergamot</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 2 / 5">
+              <div class="mini-bar" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 5 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 100%"></div>
+            </div>
+            <span class="mini-score mono">5/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿380–700</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.7</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 94%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Ceresia café Bangkok</span>
+              
+              <span class="buy-tag">their website</span>
+              
+              <span class="buy-tag">select specialty stores</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/ceresia.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="roots-coffee"
+            data-category="specialty arabica single-origin"
+            data-roast="light medium"
+            data-price="350"
+            data-rating="4.7"
+            data-body="2"
+            data-acidity="5"
+            data-name="Roots Coffee Roaster">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/roots-coffee.html" class="table-brand-name-en">Roots Coffee Roaster</a>
+                <span class="table-brand-name-th">รูทส์ คอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Bangkok (roasting) / Northern Thailand + Imports</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">arabica</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">apricot · tamarind · black currant</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 2 / 5">
+              <div class="mini-bar" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 5 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 100%"></div>
+            </div>
+            <span class="mini-score mono">5/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿350–680</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.7</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 94%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Roots Coffee cafés Bangkok</span>
+              
+              <span class="buy-tag">their website</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/roots-coffee.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="doi-tung"
+            data-category="specialty single-origin arabica"
+            data-roast="light medium dark"
+            data-price="220"
+            data-rating="4.6"
+            data-body="3"
+            data-acidity="4"
+            data-name="Doi Tung">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/doi-tung.html" class="table-brand-name-en">Doi Tung</a>
+                <span class="table-brand-name-th">ดอยตุง</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Doi Tung, Chiang Rai (Royal Project)</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">single-origin</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">honey · jasmine · peach</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 4 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 80%"></div>
+            </div>
+            <span class="mini-score mono">4/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿220–380</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.6</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 92%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Doi Tung shops</span>
+              
+              <span class="buy-tag">Doi Tung Development Project outlets</span>
+              
+              <span class="buy-tag">major airports</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+3</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/doi-tung.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="doi-chaang"
+            data-category="specialty single-origin arabica"
+            data-roast="light medium dark"
+            data-price="280"
+            data-rating="4.6"
+            data-body="3"
+            data-acidity="3"
+            data-name="Doi Chaang Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/doi-chaang.html" class="table-brand-name-en">Doi Chaang Coffee</a>
+                <span class="table-brand-name-th">ดอยช้าง คอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Doi Chang Village, Chiang Rai</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">single-origin</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">dark honey · cedar · dark cherry</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 3 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿280–480</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.6</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 92%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Doi Chaang cafés</span>
+              
+              <span class="buy-tag">Tops Gourmet</span>
+              
+              <span class="buy-tag">select specialty stores</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+3</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/doi-chaang.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="gallery-drip"
+            data-category="specialty single-origin arabica"
+            data-roast="light medium"
+            data-price="320"
+            data-rating="4.5"
+            data-body="3"
+            data-acidity="4"
+            data-name="Gallery Drip Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/gallery-drip.html" class="table-brand-name-en">Gallery Drip Coffee</a>
+                <span class="table-brand-name-th">แกลเลอรี่ ดริปคอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Curated Thai Single Origins</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">single-origin</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">wild honey · dried tropical fruit · gentle herbs</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 4 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 80%"></div>
+            </div>
+            <span class="mini-score mono">4/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿320–600</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.5</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 90%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Gallery Drip website</span>
+              
+              <span class="buy-tag">select specialty shops</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/gallery-drip.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="hillkoff"
+            data-category="specialty arabica blend single-origin"
+            data-roast="light medium dark"
+            data-price="180"
+            data-rating="4.3"
+            data-body="3"
+            data-acidity="3"
+            data-name="Hillkoff">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/hillkoff.html" class="table-brand-name-en">Hillkoff</a>
+                <span class="table-brand-name-th">ฮิลล์คอฟฟ์</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Northern Thailand Highlands</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">arabica</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">caramel · mild fruit · balanced body</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 3 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿180–420</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.3</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 86%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Hillkoff website</span>
+              
+              <span class="buy-tag">select specialty stores</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+2</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/hillkoff.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="bluekoff"
+            data-category="specialty arabica single-origin"
+            data-roast="light medium dark"
+            data-price="200"
+            data-rating="4.3"
+            data-body="3"
+            data-acidity="3"
+            data-name="Bluekoff">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/bluekoff.html" class="table-brand-name-en">Bluekoff</a>
+                <span class="table-brand-name-th">บลูคอฟฟ์</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Northern Thailand / Chiang Rai / Chiang Mai</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--specialty">specialty</span>
+            
+            <span class="tag tag--sm tag--neutral">arabica</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">sweet citrus · brown sugar · floral</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 3 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿200–380</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.3</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 86%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Bluekoff website</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              <span class="buy-tag">Lazada</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/bluekoff.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="khao-shong"
+            data-category="commercial blend"
+            data-roast="medium dark espresso"
+            data-price="75"
+            data-rating="4.1"
+            data-body="5"
+            data-acidity="1"
+            data-name="Khao Shong">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/khao-shong.html" class="table-brand-name-en">Khao Shong</a>
+                <span class="table-brand-name-th">เขาช่อง</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Surat Thani / Southern Thailand</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">blend</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+            <span class="roast-badge roast-espresso">espresso</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">dark chocolate · roasted nuts · earthiness</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 5 / 5">
+              <div class="mini-bar" style="width: 100%"></div>
+            </div>
+            <span class="mini-score mono">5/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 1 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 20%"></div>
+            </div>
+            <span class="mini-score mono">1/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿75–120</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.1</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 82%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">7-Eleven</span>
+              
+              <span class="buy-tag">Big C</span>
+              
+              <span class="buy-tag">Lotus&#39;s</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+4</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/khao-shong.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="wawee-coffee"
+            data-category="commercial specialty-adjacent arabica"
+            data-roast="light medium dark"
+            data-price="120"
+            data-rating="4.1"
+            data-body="3"
+            data-acidity="3"
+            data-name="Wawee Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/wawee-coffee.html" class="table-brand-name-en">Wawee Coffee</a>
+                <span class="table-brand-name-th">วาวี คอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Chiang Mai / Northern Thailand</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">specialty-adjacent</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">almond · caramel · mild citrus</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 3 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿120–200</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.1</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 82%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Wawee Coffee outlets</span>
+              
+              <span class="buy-tag">Central Food Hall</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/wawee-coffee.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="dao-coffee"
+            data-category="commercial arabica single-origin"
+            data-roast="light medium dark"
+            data-price="95"
+            data-rating="4.0"
+            data-body="3"
+            data-acidity="4"
+            data-name="Dao Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/dao-coffee.html" class="table-brand-name-en">Dao Coffee</a>
+                <span class="table-brand-name-th">ดาวคอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Chiang Rai Highlands</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">arabica</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">citrus blossom · stone fruit · mild sweetness</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 4 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 80%"></div>
+            </div>
+            <span class="mini-score mono">4/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿95–160</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.0</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 80%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Tops</span>
+              
+              <span class="buy-tag">Big C</span>
+              
+              <span class="buy-tag">Lotus&#39;s</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+2</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/dao-coffee.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="bon-cafe"
+            data-category="commercial specialty-adjacent blend"
+            data-roast="light medium dark"
+            data-price="110"
+            data-rating="4.0"
+            data-body="3"
+            data-acidity="3"
+            data-name="Bon Café">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/bon-cafe.html" class="table-brand-name-en">Bon Café</a>
+                <span class="table-brand-name-th">บอน คาเฟ่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Northern Thailand</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">specialty-adjacent</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-light">light</span>
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">mild fruit · cocoa · walnut</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 3 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿110–180</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">4.0</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 80%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Tops</span>
+              
+              <span class="buy-tag">Gourmet Market</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+2</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/bon-cafe.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="cafe-amazon"
+            data-category="commercial blend"
+            data-roast="medium dark"
+            data-price="85"
+            data-rating="3.9"
+            data-body="3"
+            data-acidity="2"
+            data-name="Café Amazon">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/cafe-amazon.html" class="table-brand-name-en">Café Amazon</a>
+                <span class="table-brand-name-th">คาเฟ่ อเมซอน</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Multiple Thai Regions</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">blend</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">caramel · milk chocolate · mild nuts</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 2 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿85–130</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">3.9</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 78%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Café Amazon outlets</span>
+              
+              <span class="buy-tag">PTT stations</span>
+              
+              <span class="buy-tag">Tops</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+2</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/cafe-amazon.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="mezzox"
+            data-category="commercial specialty-adjacent blend"
+            data-roast="medium dark espresso"
+            data-price="130"
+            data-rating="3.9"
+            data-body="4"
+            data-acidity="2"
+            data-name="MezzoX">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/mezzox.html" class="table-brand-name-en">MezzoX</a>
+                <span class="table-brand-name-th">เมซโซ่ เอ็กซ์</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Thailand / Imported Blend</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">specialty-adjacent</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+            <span class="roast-badge roast-espresso">espresso</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">dark chocolate · brown sugar · dried fruit</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 4 / 5">
+              <div class="mini-bar" style="width: 80%"></div>
+            </div>
+            <span class="mini-score mono">4/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 2 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿130–200</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">3.9</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 78%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">MezzoX outlets</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              <span class="buy-tag">Lazada</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/mezzox.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="punthai-coffee"
+            data-category="commercial blend"
+            data-roast="medium dark"
+            data-price="90"
+            data-rating="3.8"
+            data-body="4"
+            data-acidity="2"
+            data-name="Punthai Coffee">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/punthai-coffee.html" class="table-brand-name-en">Punthai Coffee</a>
+                <span class="table-brand-name-th">พันธุ์ไทย คอฟฟี่</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Thailand</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">blend</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">bitter chocolate · roasted grain · dark caramel</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 4 / 5">
+              <div class="mini-bar" style="width: 80%"></div>
+            </div>
+            <span class="mini-score mono">4/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 2 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 40%"></div>
+            </div>
+            <span class="mini-score mono">2/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿90–150</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">3.8</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 76%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">Punthai Coffee outlets</span>
+              
+              <span class="buy-tag">Tops</span>
+              
+              <span class="buy-tag">Shopee</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+1</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/punthai-coffee.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+        <tr class="brand-row-tr"
+            data-brand-id="birdy"
+            data-category="commercial blend"
+            data-roast="medium dark"
+            data-price="65"
+            data-rating="3.7"
+            data-body="3"
+            data-acidity="1"
+            data-name="Birdy">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              
+              <div class="table-brand-placeholder">☕</div>
+              
+              <div class="table-brand-names">
+                <a href="/brands/birdy.html" class="table-brand-name-en">Birdy</a>
+                <span class="table-brand-name-th">เบอร์ดี้</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">Thailand</span></td>
+          <td class="col-category">
+            
+            <span class="tag tag--sm tag--commercial">commercial</span>
+            
+            <span class="tag tag--sm tag--neutral">blend</span>
+            
+          </td>
+          <td class="col-roast">
+            
+            <span class="roast-badge roast-medium">medium</span>
+            
+            <span class="roast-badge roast-dark">dark</span>
+            
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">caramelized sugar · light chocolate · creamy</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: 3 / 5">
+              <div class="mini-bar" style="width: 60%"></div>
+            </div>
+            <span class="mini-score mono">3/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: 1 / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: 20%"></div>
+            </div>
+            <span class="mini-score mono">1/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿65–100</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">3.7</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: 74%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              
+              <span class="buy-tag">7-Eleven</span>
+              
+              <span class="buy-tag">Big C</span>
+              
+              <span class="buy-tag">Lotus&#39;s</span>
+              
+              
+              <span class="buy-tag buy-tag--more">+3</span>
+              
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/birdy.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Prices are approximate per 200–250g bag. Ratings based on aggregated consumer reviews. Scroll right on mobile.</p>
+</div>
+
+<!-- Flavor Key -->
+<div class="container">
+  <div class="flavor-key">
+    <h3 class="flavor-key__title">Reading the Flavor Bars</h3>
+    <div class="flavor-key__items">
+      <div class="flavor-key__item">
+        <div class="mini-bar-container mini-bar-container--demo"><div class="mini-bar" style="width:80%"></div></div>
+        <span><strong>Body</strong> — How thick and full-feeling the coffee is in your mouth. Higher = heavier, richer cup.</span>
+      </div>
+      <div class="flavor-key__item">
+        <div class="mini-bar-container mini-bar-container--demo"><div class="mini-bar mini-bar--acidity" style="width:80%"></div></div>
+        <span><strong>Acidity</strong> — Brightness and liveliness. Higher = more citrus/fruit-forward. Not the same as sourness.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-title">Thai Coffee Ground Guide</p>
+        <p class="footer-sub">An independent buyer's resource for Thai ground coffee. Not affiliated with any brand.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Browse</p>
+        <nav class="footer-nav">
+          <a href="/">Brand Overview</a>
+          <a href="/compare.html">Compare Brands</a>
+          <a href="/guide.html">Buyer's Guide</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Categories</p>
+        <nav class="footer-nav">
+          <a href="/compare.html?filter=specialty">Specialty Coffee</a>
+          <a href="/compare.html?filter=commercial">Commercial Brands</a>
+          <a href="/compare.html?filter=single-origin">Single Origins</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Prices are approximate and may vary. Last updated March 2026.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  
+<script src="/js/compare.js"></script>
+<script>
+  // Embed brand data for client-side filtering
+  window.COFFEE_DATA = [{&#34;id&#34;: &#34;khao-shong&#34;, &#34;slug&#34;: &#34;khao-shong&#34;, &#34;name_en&#34;: &#34;Khao Shong&#34;, &#34;name_th&#34;: &#34;เขาช่อง&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Surat Thani / Southern Thailand&#34;, &#34;founded&#34;: 1980, &#34;brand_story&#34;: &#34;Thailand&#39;s most iconic coffee brand, sourced from the lush hills of Khao Shong in Surat Thani. A household name for over four decades, synonymous with classic Thai-style robusta coffee.&#34;, &#34;roast_levels&#34;: [&#34;medium&#34;, &#34;dark&#34;, &#34;espresso&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Bold, full-bodied with earthy robusta character. Notes of dark chocolate, roasted nuts, and a pleasant bitter finish. Classic Thai coffee shop taste.&#34;, &#34;notes&#34;: [&#34;dark chocolate&#34;, &#34;roasted nuts&#34;, &#34;earthiness&#34;, &#34;bitter finish&#34;], &#34;body&#34;: 5, &#34;acidity&#34;: 1, &#34;sweetness&#34;: 2, &#34;bitterness&#34;: 5, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 75, &#34;max&#34;: 120, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;7-Eleven&#34;, &#34;Big C&#34;, &#34;Lotus&#39;s&#34;, &#34;Makro&#34;, &#34;Tops&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;robusta&#34;, &#34;budget-friendly&#34;, &#34;iconic&#34;], &#34;rating&#34;: 4.1, &#34;rating_count&#34;: 1240, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.khaoshong.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;instant&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;dao-coffee&#34;, &#34;slug&#34;: &#34;dao-coffee&#34;, &#34;name_en&#34;: &#34;Dao Coffee&#34;, &#34;name_th&#34;: &#34;ดาวคอฟฟี่&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;arabica&#34;, &#34;single-origin&#34;], &#34;origin_region&#34;: &#34;Chiang Rai Highlands&#34;, &#34;founded&#34;: 1995, &#34;brand_story&#34;: &#34;Grown in the high-altitude terraces of Chiang Rai, Dao Coffee champions highland arabica from northern Thai hill tribes. A pioneer in bringing quality arabica to mainstream Thai supermarkets.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Smooth highland arabica with bright acidity and floral hints. Gentle sweetness, notes of citrus blossom and mild stone fruit, clean finish.&#34;, &#34;notes&#34;: [&#34;citrus blossom&#34;, &#34;stone fruit&#34;, &#34;mild sweetness&#34;, &#34;clean finish&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 4, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 95, &#34;max&#34;: 160, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Tops&#34;, &#34;Big C&#34;, &#34;Lotus&#39;s&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;arabica&#34;, &#34;single-origin&#34;, &#34;highland&#34;, &#34;Chiang Rai&#34;], &#34;rating&#34;: 4.0, &#34;rating_count&#34;: 430, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;cafe-amazon&#34;, &#34;slug&#34;: &#34;cafe-amazon&#34;, &#34;name_en&#34;: &#34;Café Amazon&#34;, &#34;name_th&#34;: &#34;คาเฟ่ อเมซอน&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Multiple Thai Regions&#34;, &#34;founded&#34;: 2002, &#34;brand_story&#34;: &#34;PTT&#39;s wildly successful café chain with over 4,000 outlets across Thailand. Café Amazon&#39;s retail ground coffee brings the familiar chain taste home, blending robusta and arabica for broad appeal.&#34;, &#34;roast_levels&#34;: [&#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Approachable and consistent. Medium-bodied blend of Thai arabica and robusta. Caramel sweetness upfront, mild cocoa notes, smooth aftertaste designed for mass appeal.&#34;, &#34;notes&#34;: [&#34;caramel&#34;, &#34;milk chocolate&#34;, &#34;mild nuts&#34;, &#34;smooth finish&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 2, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 3, &#34;aroma&#34;: 3}, &#34;price_range_thb&#34;: {&#34;min&#34;: 85, &#34;max&#34;: 130, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Café Amazon outlets&#34;, &#34;PTT stations&#34;, &#34;Tops&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;arabica&#34;, &#34;robusta&#34;, &#34;widely-available&#34;], &#34;rating&#34;: 3.9, &#34;rating_count&#34;: 2100, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.cafeamazon.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;drip bag&#34;, &#34;capsule&#34;]}, {&#34;id&#34;: &#34;birdy&#34;, &#34;slug&#34;: &#34;birdy&#34;, &#34;name_en&#34;: &#34;Birdy&#34;, &#34;name_th&#34;: &#34;เบอร์ดี้&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Thailand&#34;, &#34;founded&#34;: 1990, &#34;brand_story&#34;: &#34;Ajinomoto&#39;s Birdy brand is one of Thailand&#39;s best-known canned coffee names, now extending into ground coffee blends. Widely trusted by everyday Thai consumers for its consistent, approachable taste.&#34;, &#34;roast_levels&#34;: [&#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Sweet-forward and smooth, optimized for Thai-style milk coffee preparation. Notes of caramelized sugar, light chocolate, and a creamy texture when brewed.&#34;, &#34;notes&#34;: [&#34;caramelized sugar&#34;, &#34;light chocolate&#34;, &#34;creamy&#34;, &#34;smooth&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 1, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 3}, &#34;price_range_thb&#34;: {&#34;min&#34;: 65, &#34;max&#34;: 100, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;7-Eleven&#34;, &#34;Big C&#34;, &#34;Lotus&#39;s&#34;, &#34;FamilyMart&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;budget-friendly&#34;, &#34;widely-available&#34;], &#34;rating&#34;: 3.7, &#34;rating_count&#34;: 890, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;instant&#34;, &#34;3-in-1&#34;]}, {&#34;id&#34;: &#34;bon-cafe&#34;, &#34;slug&#34;: &#34;bon-cafe&#34;, &#34;name_en&#34;: &#34;Bon Café&#34;, &#34;name_th&#34;: &#34;บอน คาเฟ่&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;specialty-adjacent&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Northern Thailand&#34;, &#34;founded&#34;: 1988, &#34;brand_story&#34;: &#34;One of Thailand&#39;s longer-standing premium domestic brands, Bon Café bridges the gap between commercial and specialty coffee with higher-grade Thai arabica sourced from northern highland cooperatives.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Well-balanced and nuanced for a commercial brand. Mild fruit brightness, cocoa and walnut midnotes, with a clean, pleasant finish. Good complexity at an accessible price.&#34;, &#34;notes&#34;: [&#34;mild fruit&#34;, &#34;cocoa&#34;, &#34;walnut&#34;, &#34;clean finish&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 3, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 3, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 110, &#34;max&#34;: 180, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Tops&#34;, &#34;Gourmet Market&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;, &#34;specialty stores&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;arabica&#34;, &#34;premium-commercial&#34;], &#34;rating&#34;: 4.0, &#34;rating_count&#34;: 320, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;punthai-coffee&#34;, &#34;slug&#34;: &#34;punthai-coffee&#34;, &#34;name_en&#34;: &#34;Punthai Coffee&#34;, &#34;name_th&#34;: &#34;พันธุ์ไทย คอฟฟี่&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Thailand&#34;, &#34;founded&#34;: 2001, &#34;brand_story&#34;: &#34;Punthai Coffee is a Thai-operated chain and retail brand that champions locally grown coffee beans, positioning itself as a proudly domestic alternative to international chains. Popular in Bangkok malls.&#34;, &#34;roast_levels&#34;: [&#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Rich and robust with Thai-style characteristics. Strong body, dark roast notes of bitter chocolate and roasted grain, designed to pair well with condensed milk in traditional preparation.&#34;, &#34;notes&#34;: [&#34;bitter chocolate&#34;, &#34;roasted grain&#34;, &#34;dark caramel&#34;, &#34;full body&#34;], &#34;body&#34;: 4, &#34;acidity&#34;: 2, &#34;sweetness&#34;: 2, &#34;bitterness&#34;: 4, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 90, &#34;max&#34;: 150, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Punthai Coffee outlets&#34;, &#34;Tops&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;robusta&#34;, &#34;Thai-owned&#34;], &#34;rating&#34;: 3.8, &#34;rating_count&#34;: 285, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;mezzox&#34;, &#34;slug&#34;: &#34;mezzox&#34;, &#34;name_en&#34;: &#34;MezzoX&#34;, &#34;name_th&#34;: &#34;เมซโซ่ เอ็กซ์&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;specialty-adjacent&#34;, &#34;blend&#34;], &#34;origin_region&#34;: &#34;Thailand / Imported Blend&#34;, &#34;founded&#34;: 2010, &#34;brand_story&#34;: &#34;MezzoX is a growing Thai café chain with a retail ground coffee line that targets young urban professionals. Their blends use a mix of Thai arabica and imported beans for a consistent espresso-forward taste.&#34;, &#34;roast_levels&#34;: [&#34;medium&#34;, &#34;dark&#34;, &#34;espresso&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Espresso-focused profile. Dark and syrupy with notes of dark chocolate, brown sugar, and a hint of dried fruit. Designed for espresso machines and moka pots.&#34;, &#34;notes&#34;: [&#34;dark chocolate&#34;, &#34;brown sugar&#34;, &#34;dried fruit&#34;, &#34;syrupy&#34;], &#34;body&#34;: 4, &#34;acidity&#34;: 2, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 4, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 130, &#34;max&#34;: 200, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;MezzoX outlets&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;, &#34;their online store&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;blend&#34;, &#34;espresso&#34;, &#34;urban&#34;], &#34;rating&#34;: 3.9, &#34;rating_count&#34;: 190, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;espresso pods&#34;]}, {&#34;id&#34;: &#34;doi-tung&#34;, &#34;slug&#34;: &#34;doi-tung&#34;, &#34;name_en&#34;: &#34;Doi Tung&#34;, &#34;name_th&#34;: &#34;ดอยตุง&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;], &#34;origin_region&#34;: &#34;Doi Tung, Chiang Rai (Royal Project)&#34;, &#34;founded&#34;: 1988, &#34;brand_story&#34;: &#34;A product of the Mae Fah Luang Foundation under the Royal Initiative of H.R.H. Princess Srinagarindra. Doi Tung coffee is grown on the slopes of Doi Tung mountain, replacing opium cultivation with sustainable highland arabica of exceptional quality.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Elegant and refined. Floral aromatics with honey sweetness, gentle stone fruit acidity, and a silky, lingering finish. One of Thailand&#39;s most celebrated single-origin coffees.&#34;, &#34;notes&#34;: [&#34;honey&#34;, &#34;jasmine&#34;, &#34;peach&#34;, &#34;silky finish&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 4, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 220, &#34;max&#34;: 380, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Doi Tung shops&#34;, &#34;Doi Tung Development Project outlets&#34;, &#34;major airports&#34;, &#34;Tops Gourmet&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;royal-project&#34;, &#34;sustainable&#34;, &#34;award-winning&#34;], &#34;rating&#34;: 4.6, &#34;rating_count&#34;: 780, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.doitung.org&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;, &#34;gift sets&#34;]}, {&#34;id&#34;: &#34;wawee-coffee&#34;, &#34;slug&#34;: &#34;wawee-coffee&#34;, &#34;name_en&#34;: &#34;Wawee Coffee&#34;, &#34;name_th&#34;: &#34;วาวี คอฟฟี่&#34;, &#34;category&#34;: [&#34;commercial&#34;, &#34;specialty-adjacent&#34;, &#34;arabica&#34;], &#34;origin_region&#34;: &#34;Chiang Mai / Northern Thailand&#34;, &#34;founded&#34;: 1998, &#34;brand_story&#34;: &#34;Born in Chiang Mai, Wawee Coffee has grown into one of northern Thailand&#39;s beloved café chains, using arabica from highland communities near Chiang Mai. Their retail ground coffee carries the fresh, approachable character of northern Thai coffee culture.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Bright and food-friendly. Light-to-medium roast highlights sweet almond, mild caramel, and gentle citrus notes. Works beautifully as black coffee or with milk.&#34;, &#34;notes&#34;: [&#34;almond&#34;, &#34;caramel&#34;, &#34;mild citrus&#34;, &#34;clean body&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 3, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 120, &#34;max&#34;: 200, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Wawee Coffee outlets&#34;, &#34;Central Food Hall&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;commercial&#34;, &#34;arabica&#34;, &#34;northern-thai&#34;, &#34;café-chain&#34;, &#34;Chiang Mai&#34;], &#34;rating&#34;: 4.1, &#34;rating_count&#34;: 560, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.waweecoffee.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;akha-ama&#34;, &#34;slug&#34;: &#34;akha-ama&#34;, &#34;name_en&#34;: &#34;Akha Ama Coffee&#34;, &#34;name_th&#34;: &#34;อาข่า อ่ามา คอฟฟี่&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;], &#34;origin_region&#34;: &#34;Maejantai Village, Chiang Mai&#34;, &#34;founded&#34;: 2010, &#34;brand_story&#34;: &#34;Founded by Lee Ayu Chuepa, an Akha tribesman from Maejantai village, Akha Ama directly sources exceptional arabica from his own community. A global specialty coffee benchmark that put Thai specialty coffee on the world map.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Complex and terroir-driven. Expect vibrant fruit-forward acidity — red berries, plum, or passion fruit depending on the lot — with delicate floral notes and a clean, lingering sweetness. Exceptional clarity.&#34;, &#34;notes&#34;: [&#34;red berries&#34;, &#34;plum&#34;, &#34;passion fruit&#34;, &#34;floral&#34;, &#34;lingering sweetness&#34;], &#34;body&#34;: 2, &#34;acidity&#34;: 5, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 1, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 350, &#34;max&#34;: 650, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Akha Ama café (Chiang Mai)&#34;, &#34;their website&#34;, &#34;select specialty stores Bangkok&#34;, &#34;Shopee&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;direct-trade&#34;, &#34;award-winning&#34;, &#34;tribe-owned&#34;, &#34;Chiang Mai&#34;], &#34;rating&#34;: 4.8, &#34;rating_count&#34;: 420, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.akhaamacoffee.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;hillkoff&#34;, &#34;slug&#34;: &#34;hillkoff&#34;, &#34;name_en&#34;: &#34;Hillkoff&#34;, &#34;name_th&#34;: &#34;ฮิลล์คอฟฟ์&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;blend&#34;, &#34;single-origin&#34;], &#34;origin_region&#34;: &#34;Northern Thailand Highlands&#34;, &#34;founded&#34;: 2003, &#34;brand_story&#34;: &#34;Hillkoff is Thailand&#39;s leading specialty coffee supplier and exporter, working directly with highland arabica growers across northern Thailand. Trusted by cafés and restaurants nationwide for consistent quality and ethical sourcing.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Versatile and well-crafted. Their house blends offer balanced caramel and mild fruit notes, while single-origin offerings show distinct terroir. Reliable quality across all roast levels.&#34;, &#34;notes&#34;: [&#34;caramel&#34;, &#34;mild fruit&#34;, &#34;balanced body&#34;, &#34;clean finish&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 3, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 3, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 180, &#34;max&#34;: 420, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Hillkoff website&#34;, &#34;select specialty stores&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;, &#34;B2B wholesale&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;northern-thai&#34;, &#34;supplier&#34;, &#34;blend&#34;, &#34;single-origin&#34;], &#34;rating&#34;: 4.3, &#34;rating_count&#34;: 310, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.hillkoff.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;, &#34;bulk&#34;]}, {&#34;id&#34;: &#34;doi-chaang&#34;, &#34;slug&#34;: &#34;doi-chaang&#34;, &#34;name_en&#34;: &#34;Doi Chaang Coffee&#34;, &#34;name_th&#34;: &#34;ดอยช้าง คอฟฟี่&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;], &#34;origin_region&#34;: &#34;Doi Chang Village, Chiang Rai&#34;, &#34;founded&#34;: 2003, &#34;brand_story&#34;: &#34;A Canada-Thailand partnership with the Akha and Lisu hill tribes of Doi Chang village. One of Thailand&#39;s most internationally recognized single-origin coffees, sold in over 30 countries. Growers hold equity in the company.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Distinctly Thai highland character. Sweet and aromatic with notes of dark honey, cedar, and dark cherry. Medium body with soft, integrated acidity and a long, pleasant finish.&#34;, &#34;notes&#34;: [&#34;dark honey&#34;, &#34;cedar&#34;, &#34;dark cherry&#34;, &#34;soft acidity&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 3, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 280, &#34;max&#34;: 480, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Doi Chaang cafés&#34;, &#34;Tops Gourmet&#34;, &#34;select specialty stores&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;, &#34;international retailers&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;direct-trade&#34;, &#34;award-winning&#34;, &#34;Chiang Rai&#34;, &#34;tribal-equity&#34;], &#34;rating&#34;: 4.6, &#34;rating_count&#34;: 650, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.doichaangcoffee.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;, &#34;gift sets&#34;]}, {&#34;id&#34;: &#34;bluekoff&#34;, &#34;slug&#34;: &#34;bluekoff&#34;, &#34;name_en&#34;: &#34;Bluekoff&#34;, &#34;name_th&#34;: &#34;บลูคอฟฟ์&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;single-origin&#34;], &#34;origin_region&#34;: &#34;Northern Thailand / Chiang Rai / Chiang Mai&#34;, &#34;founded&#34;: 2008, &#34;brand_story&#34;: &#34;Bluekoff is a Bangkok-based specialty roaster and retailer that sources arabica from across northern Thailand&#39;s highlands. Known for consistent quality, accessibility, and a broad portfolio of single-origins and blends.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;, &#34;dark&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Clear and approachable specialty profile. Depending on the lot: sweet citrus, light brown sugar, and mild floral notes in lighter roasts. Darker roasts offer chocolate and nuts with low bitterness.&#34;, &#34;notes&#34;: [&#34;sweet citrus&#34;, &#34;brown sugar&#34;, &#34;floral&#34;, &#34;chocolate&#34;, &#34;nuts&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 3, &#34;sweetness&#34;: 3, &#34;bitterness&#34;: 2, &#34;aroma&#34;: 4}, &#34;price_range_thb&#34;: {&#34;min&#34;: 200, &#34;max&#34;: 380, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Bluekoff website&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;, &#34;select specialty stores Bangkok&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;single-origin&#34;, &#34;Bangkok-based&#34;, &#34;accessible&#34;], &#34;rating&#34;: 4.3, &#34;rating_count&#34;: 480, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.bluekoff.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}, {&#34;id&#34;: &#34;ceresia&#34;, &#34;slug&#34;: &#34;ceresia&#34;, &#34;name_en&#34;: &#34;Ceresia Coffee Roasters&#34;, &#34;name_th&#34;: &#34;เซเรเซีย คอฟฟี่ โรสเตอร์ส&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;single-origin&#34;], &#34;origin_region&#34;: &#34;Bangkok (roasting) / Multiple Thai Origins&#34;, &#34;founded&#34;: 2013, &#34;brand_story&#34;: &#34;Ceresia is one of Bangkok&#39;s most respected specialty roasters, operating a flagship café-roastery. They source meticulously from Thai highlands and international origins, emphasizing transparency and traceability in every cup.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Precision roasted for clarity and nuance. Thai offerings show distinct terroir — jasmine, lychee, and bergamot notes with vibrant acidity and a tea-like delicacy. A showcase of what Thai arabica can achieve.&#34;, &#34;notes&#34;: [&#34;jasmine&#34;, &#34;lychee&#34;, &#34;bergamot&#34;, &#34;tea-like&#34;, &#34;vibrant acidity&#34;], &#34;body&#34;: 2, &#34;acidity&#34;: 5, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 1, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 380, &#34;max&#34;: 700, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Ceresia café Bangkok&#34;, &#34;their website&#34;, &#34;select specialty stores&#34;, &#34;Shopee&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;craft-roaster&#34;, &#34;Bangkok&#34;, &#34;premium&#34;, &#34;award-winning&#34;], &#34;rating&#34;: 4.7, &#34;rating_count&#34;: 290, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.ceresiacoffee.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;]}, {&#34;id&#34;: &#34;roots-coffee&#34;, &#34;slug&#34;: &#34;roots-coffee&#34;, &#34;name_en&#34;: &#34;Roots Coffee Roaster&#34;, &#34;name_th&#34;: &#34;รูทส์ คอฟฟี่&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;arabica&#34;, &#34;single-origin&#34;], &#34;origin_region&#34;: &#34;Bangkok (roasting) / Northern Thailand + Imports&#34;, &#34;founded&#34;: 2012, &#34;brand_story&#34;: &#34;A pioneering Bangkok specialty roaster that helped spark Thailand&#39;s third-wave coffee movement. Roots sources from exceptional Thai highlands and global origins, roasting each to highlight origin character over process.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Third-wave precision. Expect elegant brightness, nuanced fruit complexity — often apricot, tamarind, or black currant — with a refined structure and persistent sweetness. Consistently impressive Thai single-origins.&#34;, &#34;notes&#34;: [&#34;apricot&#34;, &#34;tamarind&#34;, &#34;black currant&#34;, &#34;brightness&#34;, &#34;persistent sweetness&#34;], &#34;body&#34;: 2, &#34;acidity&#34;: 5, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 1, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 350, &#34;max&#34;: 680, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Roots Coffee cafés Bangkok&#34;, &#34;their website&#34;, &#34;Shopee&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;craft-roaster&#34;, &#34;Bangkok&#34;, &#34;premium&#34;, &#34;third-wave&#34;], &#34;rating&#34;: 4.7, &#34;rating_count&#34;: 340, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;https://www.rootsbkk.com&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;]}, {&#34;id&#34;: &#34;gallery-drip&#34;, &#34;slug&#34;: &#34;gallery-drip&#34;, &#34;name_en&#34;: &#34;Gallery Drip Coffee&#34;, &#34;name_th&#34;: &#34;แกลเลอรี่ ดริปคอฟฟี่&#34;, &#34;category&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;], &#34;origin_region&#34;: &#34;Curated Thai Single Origins&#34;, &#34;founded&#34;: 2015, &#34;brand_story&#34;: &#34;Gallery Drip Coffee curates single-origin Thai coffees presented as a rotating &#39;gallery&#39; of lots — each bag is a distinct artwork of flavor. Focused on transparency, with full farm and processing details on every package.&#34;, &#34;roast_levels&#34;: [&#34;light&#34;, &#34;medium&#34;], &#34;flavor_profile&#34;: {&#34;description&#34;: &#34;Rotating seasonal lots, each distinct. Thai single-origins often feature: wild honey, dried tropical fruit, gentle herbs, and creamy body depending on processing. Always traceable to specific farms.&#34;, &#34;notes&#34;: [&#34;wild honey&#34;, &#34;dried tropical fruit&#34;, &#34;gentle herbs&#34;, &#34;creamy&#34;], &#34;body&#34;: 3, &#34;acidity&#34;: 4, &#34;sweetness&#34;: 4, &#34;bitterness&#34;: 1, &#34;aroma&#34;: 5}, &#34;price_range_thb&#34;: {&#34;min&#34;: 320, &#34;max&#34;: 600, &#34;per_grams&#34;: 200}, &#34;where_to_buy&#34;: [&#34;Gallery Drip website&#34;, &#34;select specialty shops&#34;, &#34;Shopee&#34;, &#34;Lazada&#34;], &#34;tags&#34;: [&#34;specialty&#34;, &#34;single-origin&#34;, &#34;arabica&#34;, &#34;curated&#34;, &#34;transparent&#34;, &#34;seasonal&#34;], &#34;rating&#34;: 4.5, &#34;rating_count&#34;: 180, &#34;images&#34;: [], &#34;thumbnail&#34;: &#34;&#34;, &#34;website&#34;: &#34;&#34;, &#34;available_formats&#34;: [&#34;ground&#34;, &#34;whole bean&#34;, &#34;drip bag&#34;]}];
+
+  // Check URL params for initial filter
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('filter')) {
+    document.getElementById('filter-category').value = params.get('filter');
+    applyFilters();
+  }
+</script>
+
+</body>
+</html>

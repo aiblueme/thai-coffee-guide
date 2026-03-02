@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% set active_page = "compare" %}
+
+{% block title %}Compare Thai Ground Coffee Brands — Full Table{% endblock %}
+{% block meta_description %}Side-by-side comparison of {{ brands|length }} Thai ground coffee brands. Filter by roast level, price, and category. Sort by rating or price.{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Page-specific overrides for comparison table */
+  .compare-controls { position: sticky; top: 56px; z-index: 50; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header page-header--compare">
+  <div class="container">
+    <p class="page-eyebrow">Full Comparison</p>
+    <h1 class="page-title">{{ brands|length }} Thai Ground Coffees<br>Side by Side</h1>
+    <p class="page-subtitle">Filter, sort, and compare by flavor, price, roast, and origin. All brands, one table.</p>
+  </div>
+</div>
+
+<!-- Controls bar -->
+<div class="compare-controls">
+  <div class="container">
+    <div class="controls-inner">
+      <div class="filter-group">
+        <label class="filter-label" for="filter-category">Category</label>
+        <select id="filter-category" class="filter-select" onchange="applyFilters()">
+          <option value="">All</option>
+          <option value="specialty">Specialty</option>
+          <option value="commercial">Commercial</option>
+          <option value="single-origin">Single Origin</option>
+          <option value="blend">Blend</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-roast">Roast Level</label>
+        <select id="filter-roast" class="filter-select" onchange="applyFilters()">
+          <option value="">All Roasts</option>
+          <option value="light">Light</option>
+          <option value="medium">Medium</option>
+          <option value="dark">Dark</option>
+          <option value="espresso">Espresso</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-price">Max Price (฿/200g)</label>
+        <select id="filter-price" class="filter-select" onchange="applyFilters()">
+          <option value="">Any Price</option>
+          <option value="100">Under ฿100</option>
+          <option value="200">Under ฿200</option>
+          <option value="350">Under ฿350</option>
+          <option value="700">Under ฿700</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="sort-by">Sort By</label>
+        <select id="sort-by" class="filter-select" onchange="applyFilters()">
+          <option value="rating">Rating (High→Low)</option>
+          <option value="price-asc">Price (Low→High)</option>
+          <option value="price-desc">Price (High→Low)</option>
+          <option value="name">Name (A→Z)</option>
+        </select>
+      </div>
+      <button class="btn btn--sm btn--ghost" onclick="resetFilters()">Reset</button>
+    </div>
+    <div class="results-count">
+      <span id="results-count">{{ brands|length }}</span> brands shown
+    </div>
+  </div>
+</div>
+
+<!-- Comparison Table -->
+<div class="container container--wide">
+  <div class="table-scroll-wrapper">
+    <table class="compare-table" id="compare-table">
+      <thead>
+        <tr>
+          <th class="col-brand sticky-col" scope="col">Brand</th>
+          <th class="col-origin" scope="col">Origin</th>
+          <th class="col-category" scope="col">Category</th>
+          <th class="col-roast" scope="col">Roast Levels</th>
+          <th class="col-flavor" scope="col">Flavor Profile</th>
+          <th class="col-body" scope="col">
+            <button class="sort-btn" onclick="sortTable('body')" title="Sort by body">Body <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-acidity" scope="col">
+            <button class="sort-btn" onclick="sortTable('acidity')" title="Sort by acidity">Acidity <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-price" scope="col">
+            <button class="sort-btn" onclick="sortTable('price')" title="Sort by price">Price/200g <span class="sort-indicator"></span></button>
+          </th>
+          <th class="col-rating" scope="col">
+            <button class="sort-btn sort-btn--active" onclick="sortTable('rating')" title="Sort by rating">Rating <span class="sort-indicator">↓</span></button>
+          </th>
+          <th class="col-buy" scope="col">Buy At</th>
+          <th class="col-details" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="compare-tbody">
+        {% for brand in brands | sort(attribute="rating", reverse=true) %}
+        <tr class="brand-row-tr"
+            data-brand-id="{{ brand.id }}"
+            data-category="{{ brand.category | join(' ') }}"
+            data-roast="{{ brand.roast_levels | join(' ') }}"
+            data-price="{{ brand.price_range_thb.min }}"
+            data-rating="{{ brand.rating }}"
+            data-body="{{ brand.flavor_profile.body }}"
+            data-acidity="{{ brand.flavor_profile.acidity }}"
+            data-name="{{ brand.name_en }}">
+          <td class="col-brand sticky-col">
+            <div class="table-brand-cell">
+              {% if brand.thumbnail %}
+              <img
+                src="/images/{{ brand.slug }}/{{ brand.thumbnail }}"
+                alt="{{ brand.name_en }}"
+                class="table-brand-img"
+                loading="lazy"
+                width="48" height="48"
+              >
+              {% else %}
+              <div class="table-brand-placeholder">☕</div>
+              {% endif %}
+              <div class="table-brand-names">
+                <a href="/brands/{{ brand.slug }}.html" class="table-brand-name-en">{{ brand.name_en }}</a>
+                <span class="table-brand-name-th">{{ brand.name_th }}</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-origin"><span class="origin-text">{{ brand.origin_region }}</span></td>
+          <td class="col-category">
+            {% for cat in brand.category[:2] %}
+            <span class="tag tag--sm {% if cat == 'specialty' %}tag--specialty{% elif cat == 'commercial' %}tag--commercial{% else %}tag--neutral{% endif %}">{{ cat }}</span>
+            {% endfor %}
+          </td>
+          <td class="col-roast">
+            {% for roast in brand.roast_levels %}
+            <span class="roast-badge roast-{{ roast }}">{{ roast }}</span>
+            {% endfor %}
+          </td>
+          <td class="col-flavor">
+            <span class="flavor-notes">{{ brand.flavor_profile.notes[:3] | join(" · ") }}</span>
+          </td>
+          <td class="col-body">
+            <div class="mini-bar-container" aria-label="Body: {{ brand.flavor_profile.body }} / 5">
+              <div class="mini-bar" style="width: {{ (brand.flavor_profile.body / 5 * 100)|int }}%"></div>
+            </div>
+            <span class="mini-score mono">{{ brand.flavor_profile.body }}/5</span>
+          </td>
+          <td class="col-acidity">
+            <div class="mini-bar-container" aria-label="Acidity: {{ brand.flavor_profile.acidity }} / 5">
+              <div class="mini-bar mini-bar--acidity" style="width: {{ (brand.flavor_profile.acidity / 5 * 100)|int }}%"></div>
+            </div>
+            <span class="mini-score mono">{{ brand.flavor_profile.acidity }}/5</span>
+          </td>
+          <td class="col-price">
+            <span class="price-range mono">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+          </td>
+          <td class="col-rating">
+            <div class="rating-cell">
+              <span class="rating-cell__score mono">{{ "%.1f"|format(brand.rating) }}</span>
+              <div class="rating-cell__bar">
+                <div class="rating-cell__fill" style="width: {{ (brand.rating / 5 * 100)|int }}%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="col-buy">
+            <div class="buy-tags">
+              {% for place in brand.where_to_buy[:3] %}
+              <span class="buy-tag">{{ place }}</span>
+              {% endfor %}
+              {% if brand.where_to_buy|length > 3 %}
+              <span class="buy-tag buy-tag--more">+{{ brand.where_to_buy|length - 3 }}</span>
+              {% endif %}
+            </div>
+          </td>
+          <td class="col-details">
+            <a href="/brands/{{ brand.slug }}.html" class="btn btn--sm">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Prices are approximate per 200–250g bag. Ratings based on aggregated consumer reviews. Scroll right on mobile.</p>
+</div>
+
+<!-- Flavor Key -->
+<div class="container">
+  <div class="flavor-key">
+    <h3 class="flavor-key__title">Reading the Flavor Bars</h3>
+    <div class="flavor-key__items">
+      <div class="flavor-key__item">
+        <div class="mini-bar-container mini-bar-container--demo"><div class="mini-bar" style="width:80%"></div></div>
+        <span><strong>Body</strong> — How thick and full-feeling the coffee is in your mouth. Higher = heavier, richer cup.</span>
+      </div>
+      <div class="flavor-key__item">
+        <div class="mini-bar-container mini-bar-container--demo"><div class="mini-bar mini-bar--acidity" style="width:80%"></div></div>
+        <span><strong>Acidity</strong> — Brightness and liveliness. Higher = more citrus/fruit-forward. Not the same as sourness.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/js/compare.js"></script>
+<script>
+  // Embed brand data for client-side filtering
+  window.COFFEE_DATA = {{ brands_json }};
+
+  // Check URL params for initial filter
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('filter')) {
+    document.getElementById('filter-category').value = params.get('filter');
+    applyFilters();
+  }
+</script>
+{% endblock %}

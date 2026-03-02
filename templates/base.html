@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% block meta_description %}The definitive buyer's guide to Thai ground coffee — compare brands, flavor profiles, prices, and where to buy.{% endblock %}">
+  <title>{% block title %}Thai Ground Coffee Guide{% endblock %}</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts: Editorial serif + Thai support -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <span class="logo-mark">&#9679;</span>
+        <span class="logo-text">Thai Coffee<br><em>Ground Guide</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/" class="nav-link {% if active_page == 'home' %}nav-link--active{% endif %}">Overview</a>
+        <a href="/compare.html" class="nav-link {% if active_page == 'compare' %}nav-link--active{% endif %}">Compare</a>
+        <a href="/guide.html" class="nav-link {% if active_page == 'guide' %}nav-link--active{% endif %}">Buyer's Guide</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-title">Thai Coffee Ground Guide</p>
+        <p class="footer-sub">An independent buyer's resource for Thai ground coffee. Not affiliated with any brand.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Browse</p>
+        <nav class="footer-nav">
+          <a href="/">Brand Overview</a>
+          <a href="/compare.html">Compare Brands</a>
+          <a href="/guide.html">Buyer's Guide</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Categories</p>
+        <nav class="footer-nav">
+          <a href="/compare.html?filter=specialty">Specialty Coffee</a>
+          <a href="/compare.html?filter=commercial">Commercial Brands</a>
+          <a href="/compare.html?filter=single-origin">Single Origins</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Prices are approximate and may vary. Last updated March 2026.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

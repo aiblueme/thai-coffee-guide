@@ -1,0 +1,7 @@
+services:
+  thai-coffee:
+    build: .
+    container_name: thai-coffee-guide
+    restart: unless-stopped
+    ports:
+      - "8420:8420"
