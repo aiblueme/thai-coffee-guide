@@ -21,15 +21,12 @@
     <div class="brand-hero__image-col">
       {% if brand.images %}
       <div class="brand-hero__gallery">
-        <picture>
-          <source srcset="/images/{{ brand.slug }}/{{ brand.images[0] }}" type="image/webp">
-          <img
-            src="/images/{{ brand.slug }}/{{ brand.images[0] }}"
-            alt="{{ brand.name_en }} ground coffee bag"
-            class="brand-hero__main-img"
-            width="600" height="600"
-          >
-        </picture>
+        <img
+          src="/images/{{ brand.slug }}/{{ brand.images[0] }}"
+          alt="{{ brand.name_en }} ground coffee bag"
+          class="brand-hero__main-img"
+          width="600" height="600"
+        >
         {% if brand.images|length > 1 %}
         <div class="brand-hero__thumbs">
           {% for img in brand.images[1:5] %}
