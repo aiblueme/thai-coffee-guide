@@ -96,6 +96,14 @@
     applyFilters();
   };
 
+  // Event listeners (better than inline onclick)
+  const resetBtn = document.getElementById('reset-filters-btn');
+  if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+
+  document.querySelectorAll('.sort-btn[data-sort-col]').forEach(btn => {
+    btn.addEventListener('click', () => sortTable(btn.dataset.sortCol));
+  });
+
   // Run on load with initial state
   applyFilters();
 

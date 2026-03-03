@@ -66,7 +66,7 @@
           <option value="acidity-desc">Acidity (Brightest first)</option>
         </select>
       </div>
-      <button class="btn btn--sm btn--ghost" onclick="resetFilters()">Reset</button>
+      <button class="btn btn--sm btn--ghost" id="reset-filters-btn">Reset</button>
     </div>
     <div class="results-count">
       <span id="results-count">{{ brands|length }}</span> brands shown
@@ -86,16 +86,16 @@
           <th class="col-roast" scope="col">Roast Levels</th>
           <th class="col-flavor" scope="col">Flavor Profile</th>
           <th class="col-body" scope="col">
-            <button class="sort-btn" onclick="sortTable('body')" title="Sort by body">Body <span class="sort-indicator"></span></button>
+            <button class="sort-btn" data-sort-col="body" title="Sort by body">Body <span class="sort-indicator"></span></button>
           </th>
           <th class="col-acidity" scope="col">
-            <button class="sort-btn" onclick="sortTable('acidity')" title="Sort by acidity">Acidity <span class="sort-indicator"></span></button>
+            <button class="sort-btn" data-sort-col="acidity" title="Sort by acidity">Acidity <span class="sort-indicator"></span></button>
           </th>
           <th class="col-price" scope="col">
-            <button class="sort-btn" onclick="sortTable('price')" title="Sort by price">Price/200g <span class="sort-indicator"></span></button>
+            <button class="sort-btn" data-sort-col="price" title="Sort by price">Price/200g <span class="sort-indicator"></span></button>
           </th>
           <th class="col-rating" scope="col">
-            <button class="sort-btn sort-btn--active" onclick="sortTable('rating')" title="Sort by rating">Rating <span class="sort-indicator">↓</span></button>
+            <button class="sort-btn sort-btn--active" data-sort-col="rating" title="Sort by rating">Rating <span class="sort-indicator">↓</span></button>
           </th>
           <th class="col-buy" scope="col">Buy At</th>
           <th class="col-details" scope="col"></th>
