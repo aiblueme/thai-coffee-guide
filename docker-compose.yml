@@ -4,4 +4,14 @@ services:
     container_name: thai-coffee-guide
     restart: unless-stopped
     ports:
-      - "8420:8420"
+      - "8420:80"   # Keep direct port access for debugging
+    networks:
+      - swag-network
+    labels:
+      - "swag_enable=true"
+      - "swag_address=thai-coffee.shellnode.lol"
+      - "swag_port=80"
+
+networks:
+  swag-network:
+    external: true
