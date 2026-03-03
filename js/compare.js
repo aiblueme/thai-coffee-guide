@@ -57,6 +57,24 @@
       btn.classList.remove('sort-btn--active');
       btn.querySelector('.sort-indicator').textContent = '';
     });
+
+    // Feature 2: Active filter highlight + Clear All visibility
+    const filterIds = ['filter-category', 'filter-roast', 'filter-price'];
+    let activeCount = 0;
+    filterIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isActive = el.value !== '';
+      el.classList.toggle('filter-select--active', isActive);
+      if (isActive) activeCount++;
+    });
+    const clearBtn = document.getElementById('filter-clear-btn');
+    const pill     = document.getElementById('active-filter-pill');
+    if (clearBtn) clearBtn.classList.toggle('is-visible', activeCount > 0);
+    if (pill) {
+      pill.textContent = `${activeCount} active`;
+      pill.classList.toggle('is-visible', activeCount > 0);
+    }
   };
 
   function getSortFn(sortBy) {
@@ -95,6 +113,9 @@
     document.getElementById('sort-by').value = 'rating';
     applyFilters();
   };
+
+  const clearBtn = document.getElementById('filter-clear-btn');
+  if (clearBtn) clearBtn.addEventListener('click', resetFilters);
 
   // Event listeners (better than inline onclick)
   const resetBtn = document.getElementById('reset-filters-btn');

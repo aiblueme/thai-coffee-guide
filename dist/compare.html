@@ -103,6 +103,9 @@
           <option value="acidity-desc">Acidity (Brightest first)</option>
         </select>
       </div>
+      <button class="filter-clear-btn" id="filter-clear-btn" aria-label="Clear all filters">
+        Clear filters <span class="active-filter-pill" id="active-filter-pill"></span>
+      </button>
       <button class="btn btn--sm btn--ghost" id="reset-filters-btn">Reset</button>
     </div>
     <div class="results-count">
@@ -142,6 +145,7 @@
         
         <tr class="brand-row-tr"
             data-brand-id="akha-ama"
+            data-slug="akha-ama"
             data-category="specialty single-origin arabica"
             data-roast="light medium"
             data-price="350"
@@ -222,12 +226,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/akha-ama.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="akha-ama" data-name="Akha Ama Coffee" aria-label="Save Akha Ama Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/akha-ama.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="ceresia"
+            data-slug="ceresia"
             data-category="specialty arabica single-origin"
             data-roast="light medium"
             data-price="380"
@@ -308,12 +318,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/ceresia.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="ceresia" data-name="Ceresia Coffee Roasters" aria-label="Save Ceresia Coffee Roasters" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/ceresia.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="roots-coffee"
+            data-slug="roots-coffee"
             data-category="specialty arabica single-origin"
             data-roast="light medium"
             data-price="350"
@@ -392,12 +408,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/roots-coffee.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="roots-coffee" data-name="Roots Coffee Roaster" aria-label="Save Roots Coffee Roaster" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/roots-coffee.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="doi-tung"
+            data-slug="doi-tung"
             data-category="specialty single-origin arabica"
             data-roast="light medium dark"
             data-price="220"
@@ -480,12 +502,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/doi-tung.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="doi-tung" data-name="Doi Tung" aria-label="Save Doi Tung" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/doi-tung.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="doi-chaang"
+            data-slug="doi-chaang"
             data-category="specialty single-origin arabica"
             data-roast="light medium dark"
             data-price="280"
@@ -568,12 +596,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/doi-chaang.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="doi-chaang" data-name="Doi Chaang Coffee" aria-label="Save Doi Chaang Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/doi-chaang.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="gallery-drip"
+            data-slug="gallery-drip"
             data-category="specialty single-origin arabica"
             data-roast="light medium"
             data-price="320"
@@ -654,12 +688,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/gallery-drip.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="gallery-drip" data-name="Gallery Drip Coffee" aria-label="Save Gallery Drip Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/gallery-drip.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="hillkoff"
+            data-slug="hillkoff"
             data-category="specialty arabica blend single-origin"
             data-roast="light medium dark"
             data-price="180"
@@ -742,12 +782,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/hillkoff.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="hillkoff" data-name="Hillkoff" aria-label="Save Hillkoff" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/hillkoff.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="bluekoff"
+            data-slug="bluekoff"
             data-category="specialty arabica single-origin"
             data-roast="light medium dark"
             data-price="200"
@@ -830,12 +876,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/bluekoff.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="bluekoff" data-name="Bluekoff" aria-label="Save Bluekoff" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/bluekoff.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="khao-shong"
+            data-slug="khao-shong"
             data-category="commercial blend"
             data-roast="medium dark espresso"
             data-price="75"
@@ -918,12 +970,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/khao-shong.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="khao-shong" data-name="Khao Shong" aria-label="Save Khao Shong" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/khao-shong.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="wawee-coffee"
+            data-slug="wawee-coffee"
             data-category="commercial specialty-adjacent arabica"
             data-roast="light medium dark"
             data-price="120"
@@ -1006,12 +1064,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/wawee-coffee.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="wawee-coffee" data-name="Wawee Coffee" aria-label="Save Wawee Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/wawee-coffee.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="dao-coffee"
+            data-slug="dao-coffee"
             data-category="commercial arabica single-origin"
             data-roast="light medium dark"
             data-price="95"
@@ -1094,12 +1158,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/dao-coffee.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="dao-coffee" data-name="Dao Coffee" aria-label="Save Dao Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/dao-coffee.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="bon-cafe"
+            data-slug="bon-cafe"
             data-category="commercial specialty-adjacent blend"
             data-roast="light medium dark"
             data-price="110"
@@ -1182,12 +1252,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/bon-cafe.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="bon-cafe" data-name="Bon Café" aria-label="Save Bon Café" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/bon-cafe.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="cafe-amazon"
+            data-slug="cafe-amazon"
             data-category="commercial blend"
             data-roast="medium dark"
             data-price="85"
@@ -1268,12 +1344,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/cafe-amazon.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="cafe-amazon" data-name="Café Amazon" aria-label="Save Café Amazon" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/cafe-amazon.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="mezzox"
+            data-slug="mezzox"
             data-category="commercial specialty-adjacent blend"
             data-roast="medium dark espresso"
             data-price="130"
@@ -1356,12 +1438,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/mezzox.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="mezzox" data-name="MezzoX" aria-label="Save MezzoX" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/mezzox.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="punthai-coffee"
+            data-slug="punthai-coffee"
             data-category="commercial blend"
             data-roast="medium dark"
             data-price="90"
@@ -1442,12 +1530,18 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/punthai-coffee.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="punthai-coffee" data-name="Punthai Coffee" aria-label="Save Punthai Coffee" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/punthai-coffee.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         
         <tr class="brand-row-tr"
             data-brand-id="birdy"
+            data-slug="birdy"
             data-category="commercial blend"
             data-roast="medium dark"
             data-price="65"
@@ -1528,7 +1622,12 @@
             </div>
           </td>
           <td class="col-details">
-            <a href="/brands/birdy.html" class="btn btn--sm">View</a>
+            <div style="display:flex;gap:0.4rem;align-items:center">
+              <button class="bookmark-btn" data-slug="birdy" data-name="Birdy" aria-label="Save Birdy" title="Save to list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <a href="/brands/birdy.html" class="btn btn--sm">View</a>
+            </div>
           </td>
         </tr>
         

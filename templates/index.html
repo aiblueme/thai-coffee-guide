@@ -40,6 +40,69 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     VIEW TOGGLE + QUICK LIST
+     ════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="view-toggle-bar">
+    <div class="view-toggle" role="group" aria-label="Page view">
+      <button class="view-toggle__btn is-active" data-view="editorial" aria-pressed="true">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+        Editorial
+      </button>
+      <button class="view-toggle__btn" data-view="list" aria-pressed="false">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+        All {{ brands|length }} Brands
+      </button>
+    </div>
+    <button class="bookmark-toggle-btn" id="bookmark-filter-btn" aria-pressed="false" hidden>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Saved <span class="bookmark-count-badge" hidden>0</span>
+    </button>
+  </div>
+</div>
+
+<!-- Quick list — all brands dense, hidden by default -->
+<div id="quick-list-section" class="quick-list-section" hidden>
+  <div class="container">
+    <div class="quick-list" role="list">
+      {% for brand in brands | sort(attribute="rating", reverse=true) %}
+      <div class="quick-list__row" role="listitem" data-slug="{{ brand.slug }}">
+        <span class="ql-rank">{{ "%02d"|format(loop.index) }}</span>
+        <div class="ql-img">
+          {% if brand.thumbnail %}
+          <img src="/images/{{ brand.slug }}/{{ brand.thumbnail }}" alt="{{ brand.name_en }}" width="36" height="36" loading="lazy">
+          {% else %}
+          <div class="ql-img-ph" aria-hidden="true">☕</div>
+          {% endif %}
+        </div>
+        <div class="ql-names">
+          <a href="/brands/{{ brand.slug }}.html" class="ql-name-en">{{ brand.name_en }}</a>
+          <span class="ql-name-th" lang="th">{{ brand.name_th }}</span>
+        </div>
+        <div class="ql-tags">
+          {% for cat in brand.category[:1] %}
+          <span class="tag tag--sm {% if cat == 'specialty' %}tag--specialty{% elif cat == 'commercial' %}tag--commercial{% else %}tag--neutral{% endif %}">{{ cat }}</span>
+          {% endfor %}
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">{{ "%.1f"|format(brand.rating) }}</span>
+          <span class="ql-price">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+          <span class="ql-origin">{{ brand.origin_region }}</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="{{ brand.slug }}" data-name="{{ brand.name_en }}" aria-label="Save {{ brand.name_en }}" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/{{ brand.slug }}.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div id="editorial-sections">
+<!-- ═══════════════════════════════════════════════
      CATEGORY DIVIDER — editorial context strip
      ════════════════════════════════════════════════ -->
 <section class="category-strip">
@@ -122,7 +185,12 @@
               </div>
               <span class="rating-count mono">{{ brand.rating_count }} reviews</span>
             </div>
-            <span class="brand-price mono">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <span class="brand-price mono">฿{{ brand.price_range_thb.min }}–{{ brand.price_range_thb.max }}</span>
+              <button class="bookmark-btn" data-slug="{{ brand.slug }}" data-name="{{ brand.name_en }}" aria-label="Save {{ brand.name_en }}" title="Save to list">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </article>
@@ -259,7 +327,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="{{ brand.slug }}" data-name="{{ brand.name_en }}" aria-label="Save {{ brand.name_en }}" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/{{ brand.slug }}.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -317,5 +388,7 @@
     </div>
   </div>
 </section>
+
+</div><!-- /#editorial-sections -->
 
 {% endblock %}

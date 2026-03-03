@@ -1712,3 +1712,261 @@ thead .sticky-col { background: var(--brown-deep); }
   outline: 2px solid var(--terracotta);
   outline-offset: 2px;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   UX IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Feature 4: Skeleton / Image Loading Shimmer ─────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg,
+    var(--cream-mid) 25%,
+    var(--cream) 50%,
+    var(--cream-mid) 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+/* Apply shimmer to placeholder blocks */
+.brand-card__img-placeholder,
+.brand-row__img-placeholder,
+.compact-img-placeholder,
+.table-brand-placeholder {
+  background: linear-gradient(90deg,
+    var(--cream-mid) 25%,
+    var(--cream) 50%,
+    var(--cream-mid) 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+/* Fade images in once loaded */
+.brand-card__img,
+.brand-card__compact-img,
+.brand-row__img,
+.table-brand-img {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.brand-card__img.img-loaded,
+.brand-card__compact-img.img-loaded,
+.brand-row__img.img-loaded,
+.table-brand-img.img-loaded { opacity: 1; }
+
+/* ── Feature 3: Touch Target Improvements ───────────────────── */
+.btn--sm {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-select  { min-height: 44px; }
+.sort-btn       { min-height: 44px; padding: 0 0.6rem; }
+.gallery__thumb { min-width: 44px; min-height: 44px; }
+@media (max-width: 768px) {
+  .nav-link { min-height: 44px; display: flex; align-items: center; }
+  .buy-tag  { padding: 0.35rem 0.6rem; }
+}
+
+/* ── Feature 2: Active Filter States ────────────────────────── */
+.filter-select--active {
+  border-color: var(--terracotta);
+  background: rgba(196, 101, 42, 0.07);
+  color: var(--brown-deep);
+  font-weight: 500;
+}
+.filter-clear-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--terracotta);
+  background: none;
+  border: 1.5px solid var(--terracotta);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 44px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, background 0.15s, color 0.15s;
+}
+.filter-clear-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.filter-clear-btn:hover { background: var(--terracotta); color: var(--cream-light); }
+.active-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--terracotta);
+  color: var(--cream-light);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.active-filter-pill.is-visible { opacity: 1; }
+
+/* ── Feature 1: View Toggle + Quick List ────────────────────── */
+.view-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 2.5rem;
+}
+.view-toggle {
+  display: flex;
+  gap: 3px;
+  background: var(--cream-mid);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+}
+.view-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  min-height: 32px;
+}
+.view-toggle__btn.is-active {
+  background: var(--cream-light);
+  color: var(--brown-deep);
+  box-shadow: 0 1px 3px rgba(44,24,16,0.12);
+}
+
+/* Quick list — dense ranked table of all brands */
+.quick-list-section { padding: 1.5rem 0 3rem; }
+.quick-list { display: flex; flex-direction: column; }
+.quick-list__row {
+  display: grid;
+  grid-template-columns: 1.75rem 2.5rem 1fr auto auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.12s;
+  border-radius: var(--radius-sm);
+}
+.quick-list__row:hover { background: var(--cream); }
+.quick-list__row.is-hidden { display: none !important; }
+.ql-rank { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-align: right; }
+.ql-img img { width: 36px; height: 36px; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+.ql-img-ph  { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.ql-names   { min-width: 0; }
+.ql-name-en {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: var(--brown-deep);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ql-name-en:hover { color: var(--terracotta); }
+.ql-name-th { font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-serif); }
+.ql-stats   { display: flex; gap: 0.9rem; align-items: center; }
+.ql-rating  { font-family: var(--font-mono); font-size: 0.78rem; color: var(--terracotta); font-weight: 500; min-width: 2.2rem; }
+.ql-price   { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary); min-width: 5.5rem; }
+.ql-origin  { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); white-space: nowrap; }
+.ql-actions { display: flex; align-items: center; gap: 0.4rem; }
+@media (max-width: 640px) {
+  .quick-list__row { grid-template-columns: 1.5rem 2.5rem 1fr auto auto; }
+  .ql-origin { display: none; }
+  .ql-price  { display: none; }
+  .ql-stats  { gap: 0.4rem; }
+}
+
+/* ── Feature 5: Bookmark Button ─────────────────────────────── */
+.bookmark-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  flex-shrink: 0;
+  padding: 0;
+}
+.bookmark-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.bookmark-btn.is-saved { border-color: var(--terracotta); background: var(--terracotta); color: var(--cream-light); }
+.bookmark-btn--lg { width: 44px; height: 44px; }
+.bookmark-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  min-height: 44px;
+  transition: all 0.18s;
+}
+.bookmark-toggle-btn.is-active { border-color: var(--terracotta); color: var(--terracotta); background: rgba(196,101,42,0.06); }
+.bookmark-count-badge {
+  background: var(--terracotta);
+  color: var(--cream-light);
+  font-size: 0.62rem;
+  border-radius: 999px;
+  padding: 0 0.35rem;
+  min-width: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Feature 5: Copy Button ──────────────────────────────────── */
+.copy-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.18s, border-color 0.18s;
+  min-height: 32px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.copy-btn:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.copy-btn.is-copied { color: var(--terracotta); border-color: var(--terracotta); }
+.brand-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}

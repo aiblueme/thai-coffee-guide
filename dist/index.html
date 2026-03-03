@@ -79,6 +79,502 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     VIEW TOGGLE + QUICK LIST
+     ════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="view-toggle-bar">
+    <div class="view-toggle" role="group" aria-label="Page view">
+      <button class="view-toggle__btn is-active" data-view="editorial" aria-pressed="true">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+        Editorial
+      </button>
+      <button class="view-toggle__btn" data-view="list" aria-pressed="false">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+        All 16 Brands
+      </button>
+    </div>
+    <button class="bookmark-toggle-btn" id="bookmark-filter-btn" aria-pressed="false" hidden>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Saved <span class="bookmark-count-badge" hidden>0</span>
+    </button>
+  </div>
+</div>
+
+<!-- Quick list — all brands dense, hidden by default -->
+<div id="quick-list-section" class="quick-list-section" hidden>
+  <div class="container">
+    <div class="quick-list" role="list">
+      
+      <div class="quick-list__row" role="listitem" data-slug="akha-ama">
+        <span class="ql-rank">01</span>
+        <div class="ql-img">
+          
+          <img src="/images/akha-ama/product_01_thumb.webp" alt="Akha Ama Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/akha-ama.html" class="ql-name-en">Akha Ama Coffee</a>
+          <span class="ql-name-th" lang="th">อาข่า อ่ามา คอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.8</span>
+          <span class="ql-price">฿350–650</span>
+          <span class="ql-origin">Maejantai Village, Chiang Mai</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="akha-ama" data-name="Akha Ama Coffee" aria-label="Save Akha Ama Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/akha-ama.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="ceresia">
+        <span class="ql-rank">02</span>
+        <div class="ql-img">
+          
+          <img src="/images/ceresia/product_01_thumb.webp" alt="Ceresia Coffee Roasters" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/ceresia.html" class="ql-name-en">Ceresia Coffee Roasters</a>
+          <span class="ql-name-th" lang="th">เซเรเซีย คอฟฟี่ โรสเตอร์ส</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.7</span>
+          <span class="ql-price">฿380–700</span>
+          <span class="ql-origin">Bangkok (roasting) / Multiple Thai Origins</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="ceresia" data-name="Ceresia Coffee Roasters" aria-label="Save Ceresia Coffee Roasters" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/ceresia.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="roots-coffee">
+        <span class="ql-rank">03</span>
+        <div class="ql-img">
+          
+          <img src="/images/roots-coffee/product_01_thumb.webp" alt="Roots Coffee Roaster" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/roots-coffee.html" class="ql-name-en">Roots Coffee Roaster</a>
+          <span class="ql-name-th" lang="th">รูทส์ คอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.7</span>
+          <span class="ql-price">฿350–680</span>
+          <span class="ql-origin">Bangkok (roasting) / Northern Thailand + Imports</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="roots-coffee" data-name="Roots Coffee Roaster" aria-label="Save Roots Coffee Roaster" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/roots-coffee.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="doi-tung">
+        <span class="ql-rank">04</span>
+        <div class="ql-img">
+          
+          <img src="/images/doi-tung/product_01_thumb.webp" alt="Doi Tung" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/doi-tung.html" class="ql-name-en">Doi Tung</a>
+          <span class="ql-name-th" lang="th">ดอยตุง</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.6</span>
+          <span class="ql-price">฿220–380</span>
+          <span class="ql-origin">Doi Tung, Chiang Rai (Royal Project)</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="doi-tung" data-name="Doi Tung" aria-label="Save Doi Tung" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/doi-tung.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="doi-chaang">
+        <span class="ql-rank">05</span>
+        <div class="ql-img">
+          
+          <img src="/images/doi-chaang/product_01_thumb.webp" alt="Doi Chaang Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/doi-chaang.html" class="ql-name-en">Doi Chaang Coffee</a>
+          <span class="ql-name-th" lang="th">ดอยช้าง คอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.6</span>
+          <span class="ql-price">฿280–480</span>
+          <span class="ql-origin">Doi Chang Village, Chiang Rai</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="doi-chaang" data-name="Doi Chaang Coffee" aria-label="Save Doi Chaang Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/doi-chaang.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="gallery-drip">
+        <span class="ql-rank">06</span>
+        <div class="ql-img">
+          
+          <img src="/images/gallery-drip/product_01_thumb.webp" alt="Gallery Drip Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/gallery-drip.html" class="ql-name-en">Gallery Drip Coffee</a>
+          <span class="ql-name-th" lang="th">แกลเลอรี่ ดริปคอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.5</span>
+          <span class="ql-price">฿320–600</span>
+          <span class="ql-origin">Curated Thai Single Origins</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="gallery-drip" data-name="Gallery Drip Coffee" aria-label="Save Gallery Drip Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/gallery-drip.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="hillkoff">
+        <span class="ql-rank">07</span>
+        <div class="ql-img">
+          
+          <img src="/images/hillkoff/product_01_thumb.webp" alt="Hillkoff" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/hillkoff.html" class="ql-name-en">Hillkoff</a>
+          <span class="ql-name-th" lang="th">ฮิลล์คอฟฟ์</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.3</span>
+          <span class="ql-price">฿180–420</span>
+          <span class="ql-origin">Northern Thailand Highlands</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="hillkoff" data-name="Hillkoff" aria-label="Save Hillkoff" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/hillkoff.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="bluekoff">
+        <span class="ql-rank">08</span>
+        <div class="ql-img">
+          
+          <img src="/images/bluekoff/product_01_thumb.webp" alt="Bluekoff" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/bluekoff.html" class="ql-name-en">Bluekoff</a>
+          <span class="ql-name-th" lang="th">บลูคอฟฟ์</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--specialty">specialty</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.3</span>
+          <span class="ql-price">฿200–380</span>
+          <span class="ql-origin">Northern Thailand / Chiang Rai / Chiang Mai</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="bluekoff" data-name="Bluekoff" aria-label="Save Bluekoff" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/bluekoff.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="khao-shong">
+        <span class="ql-rank">09</span>
+        <div class="ql-img">
+          
+          <img src="/images/khao-shong/product_01_thumb.webp" alt="Khao Shong" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/khao-shong.html" class="ql-name-en">Khao Shong</a>
+          <span class="ql-name-th" lang="th">เขาช่อง</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.1</span>
+          <span class="ql-price">฿75–120</span>
+          <span class="ql-origin">Surat Thani / Southern Thailand</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="khao-shong" data-name="Khao Shong" aria-label="Save Khao Shong" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/khao-shong.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="wawee-coffee">
+        <span class="ql-rank">10</span>
+        <div class="ql-img">
+          
+          <img src="/images/wawee-coffee/product_01_thumb.webp" alt="Wawee Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/wawee-coffee.html" class="ql-name-en">Wawee Coffee</a>
+          <span class="ql-name-th" lang="th">วาวี คอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.1</span>
+          <span class="ql-price">฿120–200</span>
+          <span class="ql-origin">Chiang Mai / Northern Thailand</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="wawee-coffee" data-name="Wawee Coffee" aria-label="Save Wawee Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/wawee-coffee.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="dao-coffee">
+        <span class="ql-rank">11</span>
+        <div class="ql-img">
+          
+          <img src="/images/dao-coffee/product_01_thumb.webp" alt="Dao Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/dao-coffee.html" class="ql-name-en">Dao Coffee</a>
+          <span class="ql-name-th" lang="th">ดาวคอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.0</span>
+          <span class="ql-price">฿95–160</span>
+          <span class="ql-origin">Chiang Rai Highlands</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="dao-coffee" data-name="Dao Coffee" aria-label="Save Dao Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/dao-coffee.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="bon-cafe">
+        <span class="ql-rank">12</span>
+        <div class="ql-img">
+          
+          <img src="/images/bon-cafe/product_01_thumb.webp" alt="Bon Café" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/bon-cafe.html" class="ql-name-en">Bon Café</a>
+          <span class="ql-name-th" lang="th">บอน คาเฟ่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">4.0</span>
+          <span class="ql-price">฿110–180</span>
+          <span class="ql-origin">Northern Thailand</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="bon-cafe" data-name="Bon Café" aria-label="Save Bon Café" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/bon-cafe.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="cafe-amazon">
+        <span class="ql-rank">13</span>
+        <div class="ql-img">
+          
+          <img src="/images/cafe-amazon/product_01_thumb.webp" alt="Café Amazon" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/cafe-amazon.html" class="ql-name-en">Café Amazon</a>
+          <span class="ql-name-th" lang="th">คาเฟ่ อเมซอน</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">3.9</span>
+          <span class="ql-price">฿85–130</span>
+          <span class="ql-origin">Multiple Thai Regions</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="cafe-amazon" data-name="Café Amazon" aria-label="Save Café Amazon" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/cafe-amazon.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="mezzox">
+        <span class="ql-rank">14</span>
+        <div class="ql-img">
+          
+          <img src="/images/mezzox/product_01_thumb.webp" alt="MezzoX" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/mezzox.html" class="ql-name-en">MezzoX</a>
+          <span class="ql-name-th" lang="th">เมซโซ่ เอ็กซ์</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">3.9</span>
+          <span class="ql-price">฿130–200</span>
+          <span class="ql-origin">Thailand / Imported Blend</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="mezzox" data-name="MezzoX" aria-label="Save MezzoX" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/mezzox.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="punthai-coffee">
+        <span class="ql-rank">15</span>
+        <div class="ql-img">
+          
+          <img src="/images/punthai-coffee/product_01_thumb.webp" alt="Punthai Coffee" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/punthai-coffee.html" class="ql-name-en">Punthai Coffee</a>
+          <span class="ql-name-th" lang="th">พันธุ์ไทย คอฟฟี่</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">3.8</span>
+          <span class="ql-price">฿90–150</span>
+          <span class="ql-origin">Thailand</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="punthai-coffee" data-name="Punthai Coffee" aria-label="Save Punthai Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/punthai-coffee.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+      <div class="quick-list__row" role="listitem" data-slug="birdy">
+        <span class="ql-rank">16</span>
+        <div class="ql-img">
+          
+          <img src="/images/birdy/product_01_thumb.webp" alt="Birdy" width="36" height="36" loading="lazy">
+          
+        </div>
+        <div class="ql-names">
+          <a href="/brands/birdy.html" class="ql-name-en">Birdy</a>
+          <span class="ql-name-th" lang="th">เบอร์ดี้</span>
+        </div>
+        <div class="ql-tags">
+          
+          <span class="tag tag--sm tag--commercial">commercial</span>
+          
+        </div>
+        <div class="ql-stats">
+          <span class="ql-rating">3.7</span>
+          <span class="ql-price">฿65–100</span>
+          <span class="ql-origin">Thailand</span>
+        </div>
+        <div class="ql-actions">
+          <button class="bookmark-btn" data-slug="birdy" data-name="Birdy" aria-label="Save Birdy" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="/brands/birdy.html" class="btn btn--sm">View</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id="editorial-sections">
+<!-- ═══════════════════════════════════════════════
      CATEGORY DIVIDER — editorial context strip
      ════════════════════════════════════════════════ -->
 <section class="category-strip">
@@ -157,7 +653,12 @@
               </div>
               <span class="rating-count mono">420 reviews</span>
             </div>
-            <span class="brand-price mono">฿350–650</span>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <span class="brand-price mono">฿350–650</span>
+              <button class="bookmark-btn" data-slug="akha-ama" data-name="Akha Ama Coffee" aria-label="Save Akha Ama Coffee" title="Save to list">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </article>
@@ -198,7 +699,12 @@
               </div>
               <span class="rating-count mono">290 reviews</span>
             </div>
-            <span class="brand-price mono">฿380–700</span>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <span class="brand-price mono">฿380–700</span>
+              <button class="bookmark-btn" data-slug="ceresia" data-name="Ceresia Coffee Roasters" aria-label="Save Ceresia Coffee Roasters" title="Save to list">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </article>
@@ -239,7 +745,12 @@
               </div>
               <span class="rating-count mono">340 reviews</span>
             </div>
-            <span class="brand-price mono">฿350–680</span>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <span class="brand-price mono">฿350–680</span>
+              <button class="bookmark-btn" data-slug="roots-coffee" data-name="Roots Coffee Roaster" aria-label="Save Roots Coffee Roaster" title="Save to list">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </article>
@@ -502,7 +1013,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="khao-shong" data-name="Khao Shong" aria-label="Save Khao Shong" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/khao-shong.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -545,7 +1059,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="wawee-coffee" data-name="Wawee Coffee" aria-label="Save Wawee Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/wawee-coffee.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -588,7 +1105,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="dao-coffee" data-name="Dao Coffee" aria-label="Save Dao Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/dao-coffee.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -631,7 +1151,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="bon-cafe" data-name="Bon Café" aria-label="Save Bon Café" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/bon-cafe.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -674,7 +1197,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="cafe-amazon" data-name="Café Amazon" aria-label="Save Café Amazon" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/cafe-amazon.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -717,7 +1243,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="mezzox" data-name="MezzoX" aria-label="Save MezzoX" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/mezzox.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -760,7 +1289,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="punthai-coffee" data-name="Punthai Coffee" aria-label="Save Punthai Coffee" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/punthai-coffee.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -803,7 +1335,10 @@
             <span class="stat-cell__label">From</span>
           </div>
         </div>
-        <div class="brand-row__action">
+        <div class="brand-row__action" style="display:flex;gap:0.4rem;align-items:center">
+          <button class="bookmark-btn" data-slug="birdy" data-name="Birdy" aria-label="Save Birdy" title="Save to list">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <a href="/brands/birdy.html" class="btn btn--sm">Details</a>
         </div>
       </article>
@@ -861,6 +1396,8 @@
     </div>
   </div>
 </section>
+
+</div><!-- /#editorial-sections -->
 
 
   </main>
