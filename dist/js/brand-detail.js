@@ -106,19 +106,128 @@
     ctx.fillText(data.brandName, cx, cy + radius + 42);
   }
 
-  // ─── Image gallery ───────────────────────────────────────────
-  window.setMainImage = function (src) {
-    const mainImg = document.querySelector('.brand-hero__main-img');
-    if (mainImg) {
-      mainImg.style.opacity = '0';
-      setTimeout(() => {
-        mainImg.src = src;
-        mainImg.style.opacity = '1';
-      }, 150);
+  // ─── Gallery ─────────────────────────────────────────────────
+  class Gallery {
+    constructor(el) {
+      this.el = el;
+      this.frames  = Array.from(el.querySelectorAll('.gallery__frame'));
+      this.thumbs  = Array.from(el.querySelectorAll('.gallery__thumb'));
+      this.curEl   = el.querySelector('.gallery__cur');
+      this.current = 0;
+      this.total   = this.frames.length;
+      this.srcs    = this.frames.map(f => f.querySelector('img').src);
+
+      this.lightbox  = document.getElementById('brand-lightbox');
+      this.lbImg     = this.lightbox && this.lightbox.querySelector('.lightbox__img');
+      this.lbCurEl   = this.lightbox && this.lightbox.querySelector('.lightbox__cur');
+      this.lbTotEl   = this.lightbox && this.lightbox.querySelector('.lightbox__tot');
+      if (this.lbTotEl) this.lbTotEl.textContent = this.total;
+
+      this._bindEvents();
     }
-  };
+
+    goTo(i) {
+      const next = ((i % this.total) + this.total) % this.total;
+      this.frames[this.current].classList.remove('is-active');
+      this.thumbs[this.current] && this.thumbs[this.current].classList.remove('is-active');
+      this.thumbs[this.current] && this.thumbs[this.current].setAttribute('aria-selected', 'false');
+
+      this.current = next;
+
+      this.frames[this.current].classList.add('is-active');
+      const activeThumb = this.thumbs[this.current];
+      if (activeThumb) {
+        activeThumb.classList.add('is-active');
+        activeThumb.setAttribute('aria-selected', 'true');
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      }
+
+      if (this.curEl) this.curEl.textContent = String(this.current + 1).padStart(2, '0');
+      if (this.lbCurEl) this.lbCurEl.textContent = this.current + 1;
+      if (this.lbImg && this.lightbox && !this.lightbox.hidden) {
+        this.lbImg.src = this.srcs[this.current];
+      }
+    }
+
+    openLightbox() {
+      if (!this.lightbox) return;
+      this.lbImg.src = this.srcs[this.current];
+      if (this.lbCurEl) this.lbCurEl.textContent = this.current + 1;
+      this.lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      this.lightbox.focus();
+    }
+
+    closeLightbox() {
+      if (!this.lightbox) return;
+      this.lightbox.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    _bindEvents() {
+      // Arrows
+      const prev = this.el.querySelector('.gallery__nav--prev');
+      const next = this.el.querySelector('.gallery__nav--next');
+      prev && prev.addEventListener('click', e => { e.stopPropagation(); this.goTo(this.current - 1); });
+      next && next.addEventListener('click', e => { e.stopPropagation(); this.goTo(this.current + 1); });
+
+      // Thumbnails
+      this.thumbs.forEach(t => {
+        t.addEventListener('click', () => this.goTo(parseInt(t.dataset.index, 10)));
+      });
+
+      // Click stage → lightbox
+      const stage = this.el.querySelector('.gallery__stage');
+      stage && stage.addEventListener('click', e => {
+        if (!e.target.closest('.gallery__nav') && !e.target.closest('.gallery__expand')) {
+          this.openLightbox();
+        }
+      });
+      const expand = this.el.querySelector('.gallery__expand');
+      expand && expand.addEventListener('click', e => { e.stopPropagation(); this.openLightbox(); });
+
+      // Touch swipe on stage
+      let tx = 0;
+      stage && stage.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+      stage && stage.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 40) this.goTo(this.current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      // Lightbox controls
+      if (this.lightbox) {
+        this.lightbox.querySelector('.lightbox__close').addEventListener('click', () => this.closeLightbox());
+        this.lightbox.querySelector('.lightbox__nav--prev').addEventListener('click', () => this.goTo(this.current - 1));
+        this.lightbox.querySelector('.lightbox__nav--next').addEventListener('click', () => this.goTo(this.current + 1));
+        this.lightbox.addEventListener('click', e => { if (e.target === this.lightbox) this.closeLightbox(); });
+
+        let lx = 0;
+        this.lightbox.addEventListener('touchstart', e => { lx = e.changedTouches[0].clientX; }, { passive: true });
+        this.lightbox.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - lx;
+          if (Math.abs(dx) > 40) this.goTo(this.current + (dx < 0 ? 1 : -1));
+        }, { passive: true });
+      }
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        const lbOpen = this.lightbox && !this.lightbox.hidden;
+        if (lbOpen) {
+          if (e.key === 'Escape')      { e.preventDefault(); this.closeLightbox(); }
+          if (e.key === 'ArrowLeft')   { e.preventDefault(); this.goTo(this.current - 1); }
+          if (e.key === 'ArrowRight')  { e.preventDefault(); this.goTo(this.current + 1); }
+        } else if (this.total > 1) {
+          if (e.key === 'ArrowLeft')   { e.preventDefault(); this.goTo(this.current - 1); }
+          if (e.key === 'ArrowRight')  { e.preventDefault(); this.goTo(this.current + 1); }
+        }
+      });
+    }
+  }
 
   // ─── Initialize ───────────────────────────────────────────────
+  const galleryEl = document.getElementById('brand-gallery');
+  if (galleryEl) new Gallery(galleryEl);
+
   if (window.FLAVOR_DATA) {
     drawRadar('flavor-radar', window.FLAVOR_DATA);
   }
