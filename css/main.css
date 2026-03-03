@@ -7,6 +7,7 @@
 /* ─── Custom Properties ─────────────────────────────────────── */
 :root {
   --brown-deep:    #2C1810;
+  --brown:         var(--brown-deep);
   --brown-mid:     #5C3A25;
   --brown-warm:    #8B5E3C;
   --cream:         #F5E6D3;
@@ -376,7 +377,7 @@ h1, h2, h3, h4 {
 .category-strip {
   background: var(--terracotta);
   padding: 0.85rem 1.5rem;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .strip-inner {
   display: flex;
@@ -1430,7 +1431,8 @@ thead .sticky-col { background: var(--brown-deep); }
   padding-left: 0.5rem;
   transition: color var(--transition), border-color var(--transition);
 }
-.toc-list a:hover {
+.toc-list a:hover,
+.toc-list a.toc-link--active {
   color: var(--terracotta);
   border-color: var(--terracotta);
 }
@@ -1932,6 +1934,8 @@ thead .sticky-col { background: var(--brown-deep); }
   transition: all 0.18s;
 }
 .bookmark-toggle-btn.is-active { border-color: var(--terracotta); color: var(--terracotta); background: rgba(196,101,42,0.06); }
+.bookmark-toggle-btn.is-empty { opacity: 0.45; cursor: not-allowed; }
+.bookmark-toggle-btn.is-empty:hover { border-color: var(--border); color: var(--text-muted); background: none; }
 .bookmark-count-badge {
   background: var(--terracotta);
   color: var(--cream-light);

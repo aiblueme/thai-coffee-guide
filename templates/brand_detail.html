@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set active_page = "compare" %}
+{% set active_page = "" %}
 
 {% block title %}{{ brand.name_en }} ({{ brand.name_th }}) — Thai Coffee Review{% endblock %}
 {% block meta_description %}{{ brand.name_en }} ({{ brand.name_th }}): {{ brand.flavor_profile.description[:120] }} From ฿{{ brand.price_range_thb.min }}/200g.{% endblock %}

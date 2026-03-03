@@ -1,0 +1,903 @@
+[
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "Navigation",
+    "description": "Home page returns HTTP 200"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "Meta",
+    "description": "Page title present: \"Thai Ground Coffee Guide — Compare Thailand's Best Brands\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "Navigation",
+    "description": "Mobile nav toggle element present"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "Navigation",
+    "description": "Site nav element present"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "View Toggle",
+    "description": "View toggle buttons found (2)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "View Toggle",
+    "description": "Editorial view visible by default (or saved preference)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "View Toggle",
+    "description": "Switching to list view shows quick-list section"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "View Toggle",
+    "description": "List button gets is-active class on click"
+  },
+  {
+    "severity": "PASS",
+    "page": "Home",
+    "feature": "Bookmarks",
+    "description": "Bookmark buttons found (27)"
+  },
+  {
+    "severity": "Critical",
+    "page": "Home",
+    "feature": "Test Execution",
+    "description": "Test threw exception: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Navigation",
+    "description": "Compare page returns HTTP 200"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Filters",
+    "description": "All filter dropdowns present"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Filters",
+    "description": "Clear filters button (#filter-clear-btn) present"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Filters",
+    "description": "Active filter pill (#active-filter-pill) present"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Active Filter State",
+    "description": "Filter dropdown gets filter-select--active class when value selected"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Active Filter State",
+    "description": "Clear filters button becomes visible when filter is active"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Active Filter State",
+    "description": "Active filter pill shows: \"1 active\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Clear Filters",
+    "description": "Clear filters button resets category filter to empty"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Clear Filters",
+    "description": "Clear filters button hides after resetting all filters"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Table",
+    "description": "Brand table rows found (16)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Table",
+    "description": "Results count element present, showing: 16"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Sort",
+    "description": "Sort buttons found (4)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Sort",
+    "description": "Rating sort button clicked without error"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Bookmarks",
+    "description": "Bookmark buttons in compare table found (16)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare",
+    "feature": "Console",
+    "description": "No JavaScript console errors"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Navigation",
+    "description": "Brand detail page returns HTTP 200"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Meta",
+    "description": "Page title: \"Doi Chaang Coffee (ดอยช้าง คอฟฟี่) — Thai Coffee Review\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Radar Chart",
+    "description": "Radar chart canvas (#flavor-radar) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Radar Chart",
+    "description": "Canvas has valid dimensions: 280x280"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Radar Chart",
+    "description": "window.FLAVOR_DATA is defined"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Radar Chart",
+    "description": "Radar chart canvas has drawn content (non-blank)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Gallery",
+    "description": "Image gallery (#brand-gallery) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Gallery",
+    "description": "Gallery frames found (8)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Gallery",
+    "description": "Gallery thumbnails found (8)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Gallery",
+    "description": "Clicking second thumbnail activates second gallery frame"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Copy Button",
+    "description": "Copy button found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Copy Button",
+    "description": "Copy button has data: \"Doi Chaang Coffee (ดอยช้าง คอฟฟี่)\""
+  },
+  {
+    "severity": "Medium",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Copy Button",
+    "description": "Copy button did not show is-copied state after click",
+    "details": ""
+  },
+  {
+    "severity": "Medium",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Copy Button",
+    "description": "Copy button text after click: \"Copy\" (expected \"Copied!\")",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Bookmark",
+    "description": "Bookmark button found on detail page"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Bookmark",
+    "description": "Bookmark slug: \"doi-chaang\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Flavor Bars",
+    "description": "Flavor bar fill elements found (5)"
+  },
+  {
+    "severity": "High",
+    "page": "Brand Detail: Doi Chaang",
+    "feature": "Console",
+    "description": "JS Error: PageError: Failed to execute 'writeText' on 'Clipboard': Write permission denied.",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Navigation",
+    "description": "Brand detail page returns HTTP 200"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Meta",
+    "description": "Page title: \"Akha Ama Coffee (อาข่า อ่ามา คอฟฟี่) — Thai Coffee Review\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Radar Chart",
+    "description": "Radar chart canvas (#flavor-radar) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Radar Chart",
+    "description": "Canvas has valid dimensions: 280x280"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Radar Chart",
+    "description": "window.FLAVOR_DATA is defined"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Radar Chart",
+    "description": "Radar chart canvas has drawn content (non-blank)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Gallery",
+    "description": "Image gallery (#brand-gallery) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Gallery",
+    "description": "Gallery frames found (8)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Gallery",
+    "description": "Gallery thumbnails found (8)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Gallery",
+    "description": "Clicking second thumbnail activates second gallery frame"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Copy Button",
+    "description": "Copy button found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Copy Button",
+    "description": "Copy button has data: \"Akha Ama Coffee (อาข่า อ่ามา คอฟฟี่)\""
+  },
+  {
+    "severity": "Medium",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Copy Button",
+    "description": "Copy button did not show is-copied state after click",
+    "details": ""
+  },
+  {
+    "severity": "Medium",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Copy Button",
+    "description": "Copy button text after click: \"Copy\" (expected \"Copied!\")",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Bookmark",
+    "description": "Bookmark button found on detail page"
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Bookmark",
+    "description": "Bookmark slug: \"akha-ama\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Flavor Bars",
+    "description": "Flavor bar fill elements found (5)"
+  },
+  {
+    "severity": "High",
+    "page": "Brand Detail: Akha Ama",
+    "feature": "Console",
+    "description": "JS Error: PageError: Failed to execute 'writeText' on 'Clipboard': Write permission denied.",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "Navigation",
+    "description": "Guide page returns HTTP 200"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "Meta",
+    "description": "Page title: \"Thai Ground Coffee Buyer's Guide — How to Choose\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "TOC",
+    "description": "Table of contents (.toc-list) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "TOC",
+    "description": "TOC links found (8)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "Content",
+    "description": "Content sections/headings with IDs found: 8"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide",
+    "feature": "Console",
+    "description": "No JavaScript console errors"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/compare.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/guide.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/akha-ama.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/ceresia.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/roots-coffee.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/doi-tung.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/doi-chaang.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/gallery-drip.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/hillkoff.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/bluekoff.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/khao-shong.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/wawee-coffee.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/dao-coffee.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Navigation",
+    "feature": "Link Check",
+    "description": "OK: https://thai-coffee.shellnode.lol/brands/bon-cafe.html"
+  },
+  {
+    "severity": "Low",
+    "page": "Image Loading",
+    "feature": "Shimmer",
+    "description": "No shimmer/skeleton placeholder elements found in DOM",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Image Loading",
+    "feature": "Image Fade-in",
+    "description": "All 16 images have img-loaded class or are complete"
+  },
+  {
+    "severity": "Medium",
+    "page": "Bookmark Persistence",
+    "feature": "Test Execution",
+    "description": "Bookmark persistence test threw exception: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "CSS/Visual",
+    "feature": "CSS Variables",
+    "description": "--terracotta CSS variable loaded: \"#C4652A\""
+  },
+  {
+    "severity": "Medium",
+    "page": "CSS/Visual",
+    "feature": "CSS Variables",
+    "description": "--brown CSS variable not found",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "CSS/Visual",
+    "feature": "Layout",
+    "description": "Header element has height: 66px"
+  },
+  {
+    "severity": "PASS",
+    "page": "CSS/Visual",
+    "feature": "Layout",
+    "description": "Footer element present"
+  },
+  {
+    "severity": "High",
+    "page": "Bookmark Visibility",
+    "feature": "Bookmark Buttons",
+    "description": "16 bookmark buttons are inside hidden parent sections",
+    "details": "Slugs: akha-ama, ceresia, roots-coffee, doi-tung, doi-chaang, gallery-drip, hillkoff, bluekoff, khao-shong, wawee-coffee, dao-coffee, bon-cafe, cafe-amazon, mezzox, punthai-coffee, birdy"
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Bookmark Buttons",
+    "description": "All editorial card bookmark buttons are visible"
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Bookmark Toggle",
+    "description": "Clicking editorial card bookmark button saves brand"
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Bookmark Badge",
+    "description": "Bookmark count badge visible with value: \"1\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Saved Filter Button",
+    "description": "Saved filter button is visible after bookmarking"
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Saved Filter",
+    "description": "Saved filter button becomes active on click"
+  },
+  {
+    "severity": "PASS",
+    "page": "Bookmark Visibility",
+    "feature": "Saved Filter",
+    "description": "Saved filter hides non-bookmarked rows (15 hidden, 1 shown)"
+  },
+  {
+    "severity": "High",
+    "page": "Bookmark Visibility",
+    "feature": "Test Execution",
+    "description": "Deep bookmark test threw: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Copy Button (with Permission)",
+    "feature": "Copy Button",
+    "description": "Copy button shows is-copied class with clipboard permission"
+  },
+  {
+    "severity": "PASS",
+    "page": "Copy Button (with Permission)",
+    "feature": "Copy Button",
+    "description": "Copy button text changes to \"Copied!\" with permission"
+  },
+  {
+    "severity": "PASS",
+    "page": "Copy Button (with Permission)",
+    "feature": "Clipboard",
+    "description": "Clipboard content matches: \"Doi Chaang Coffee (ดอยช้าง คอฟฟี่)\""
+  },
+  {
+    "severity": "PASS",
+    "page": "Copy Button (with Permission)",
+    "feature": "Copy Button",
+    "description": "Copy button text resets after 1.8s timeout"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "Nav starts closed on mobile"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "Nav toggle button is visible on mobile viewport"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "Nav opens after toggle click"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "aria-expanded set to \"true\" when nav is open"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "Nav closes on outside click"
+  },
+  {
+    "severity": "PASS",
+    "page": "Mobile Nav",
+    "feature": "Mobile Nav",
+    "description": "Nav links found: 3"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Initial State",
+    "description": "Initial brand count: 16"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Roast Filter",
+    "description": "Roast filter \"light\" reduces count from 16 to 11"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Roast Filter State",
+    "description": "Roast filter gets active class"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Price Filter",
+    "description": "Price filter (max ฿100/200g) shows 5 brands"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Sort by Name",
+    "description": "Sort by name applied without error"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Multi-Filter",
+    "description": "Category=specialty + Roast=medium shows 11 brands"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Filters",
+    "feature": "Multi-Filter Count",
+    "description": "Active filter pill shows \"2 active\" for 2 active filters"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Lightbox element (#brand-lightbox) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Lightbox is hidden by default"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Clicking gallery stage opens lightbox"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Body overflow set to hidden when lightbox is open"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Lightbox image element found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Lightbox image src: https://thai-coffee.shellnode.lol/images/doi-chaang/product_01.webp"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Pressing Escape closes lightbox"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Lightbox",
+    "description": "Body overflow restored after lightbox closes"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Gallery",
+    "description": "Gallery expand button found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Gallery",
+    "description": "Expand button opens lightbox"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Gallery",
+    "description": "Gallery navigation arrows (prev/next) found"
+  },
+  {
+    "severity": "PASS",
+    "page": "Gallery Lightbox",
+    "feature": "Gallery",
+    "description": "Gallery next arrow advances image (01 → 02)"
+  },
+  {
+    "severity": "High",
+    "page": "Responsive",
+    "feature": "Layout Overflow",
+    "description": "Horizontal scroll detected at Mobile-S (320px)",
+    "details": ""
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Header",
+    "description": "Header visible at Mobile-S"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Layout Overflow",
+    "description": "No horizontal scroll at Mobile-L (414px)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Header",
+    "description": "Header visible at Mobile-L"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Layout Overflow",
+    "description": "No horizontal scroll at Tablet (768px)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Header",
+    "description": "Header visible at Tablet"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Layout Overflow",
+    "description": "No horizontal scroll at Desktop (1440px)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Responsive",
+    "feature": "Header",
+    "description": "Header visible at Desktop"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Links",
+    "description": "TOC link \"#thai-coffee-overview\" points to existing element"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Links",
+    "description": "TOC link \"#arabica-vs-robusta\" points to existing element"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Links",
+    "description": "TOC link \"#roast-levels\" points to existing element"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Links",
+    "description": "TOC link \"#brewing-methods\" points to existing element"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Links",
+    "description": "TOC link \"#price-tiers\" points to existing element"
+  },
+  {
+    "severity": "PASS",
+    "page": "Guide TOC",
+    "feature": "TOC Navigation",
+    "description": "Clicking TOC link scrolls to #thai-coffee-overview"
+  },
+  {
+    "severity": "PASS",
+    "page": "Image Fade-in",
+    "feature": "Image Fade-in",
+    "description": "Image product_01_thumb.webp has opacity:1 and img-loaded class"
+  },
+  {
+    "severity": "PASS",
+    "page": "Image Fade-in",
+    "feature": "Image Fade-in",
+    "description": "Image product_01_thumb.webp has opacity:1 and img-loaded class"
+  },
+  {
+    "severity": "PASS",
+    "page": "Image Fade-in",
+    "feature": "Image Fade-in",
+    "description": "Image product_01_thumb.webp has opacity:1 and img-loaded class"
+  },
+  {
+    "severity": "PASS",
+    "page": "Image Fade-in",
+    "feature": "Placeholder",
+    "description": "No img-placeholder elements in DOM (all brands have images — expected)"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Table",
+    "feature": "Table Links",
+    "description": "Brand links found in compare table: 32"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Table",
+    "feature": "Table Links",
+    "description": "First table brand link returns 200: /brands/akha-ama.html"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Table",
+    "feature": "Table Images",
+    "description": "Table brand images found: 16"
+  },
+  {
+    "severity": "PASS",
+    "page": "Compare Table",
+    "feature": "Table Images",
+    "description": "First table image loaded"
+  }
+]

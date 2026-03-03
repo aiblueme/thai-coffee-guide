@@ -96,9 +96,10 @@
       el.textContent = count;
       el.hidden = count === 0;
     });
-    // Show/hide bookmark toggle buttons
+    // Dim bookmark toggle buttons when no bookmarks saved
     document.querySelectorAll('.bookmark-toggle-btn').forEach(btn => {
-      btn.hidden = count === 0;
+      btn.classList.toggle('is-empty', count === 0);
+      btn.disabled = count === 0;
     });
   }
 
@@ -130,7 +131,6 @@
 
   const bookmarkFilterBtn = document.getElementById('bookmark-filter-btn');
   if (bookmarkFilterBtn) {
-    if (Bookmarks.count() === 0) bookmarkFilterBtn.hidden = true;
     bookmarkFilterBtn.addEventListener('click', () => {
       const active = bookmarkFilterBtn.classList.toggle('is-active');
       bookmarkFilterBtn.setAttribute('aria-pressed', active);
@@ -153,6 +153,10 @@
           btn.textContent = orig;
           btn.classList.remove('is-copied');
         }, 1800);
+      }).catch(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Failed';
+        setTimeout(() => { btn.textContent = orig; }, 1800);
       });
     });
   });
@@ -197,9 +201,7 @@
         if (entry.isIntersecting) {
           const id = entry.target.id;
           tocLinks.forEach(link => {
-            const active = link.getAttribute('href') === `#${id}`;
-            link.style.color = active ? 'var(--terracotta)' : '';
-            link.style.borderColor = active ? 'var(--terracotta)' : '';
+            link.classList.toggle('toc-link--active', link.getAttribute('href') === `#${id}`);
           });
         }
       });
