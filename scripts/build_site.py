@@ -11,6 +11,7 @@ import shutil
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -36,8 +37,9 @@ env = Environment(
 # Custom test: used as selectattr("category", "contains", "specialty")
 env.tests["contains"] = lambda lst, val: isinstance(lst, list) and val in lst
 
-# Custom filters
-env.filters["tojson"] = lambda v: json.dumps(v, ensure_ascii=False)
+# Custom filters — Markup() prevents Jinja2 autoescape from re-encoding quotes
+# inside <script> blocks (would turn "string" into &#34;string&#34; and break JS)
+env.filters["tojson"] = lambda v: Markup(json.dumps(v, ensure_ascii=False))
 
 
 def load_data() -> dict:
