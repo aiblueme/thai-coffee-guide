@@ -8,9 +8,10 @@ services:
     networks:
       - swag-network
     labels:
-      - "swag_enable=true"
-      - "swag_address=thai-coffee.shellnode.lol"
+      - "swag=enable"
+      - "swag_address=thai-coffee-guide"
       - "swag_port=80"
+      - "swag_url=thai-coffee.shellnode.lol"
 
 networks:
   swag-network:
