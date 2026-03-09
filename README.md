@@ -2,6 +2,10 @@
 
 An independent buyer's guide comparing Thailand's major ground coffee brands — from iconic commercial staples to award-winning specialty roasters.
 
+## Live
+
+https://thai-coffee.shellnode.lol
+
 ## Stack
 
 - **Static site** — pure HTML/CSS/JS generated from Jinja2 templates + `coffee-data.json`
@@ -80,15 +84,12 @@ Open http://localhost:8420
 ### 6. Deploy to vps2
 
 ```bash
-# Push to GitHub first
-git init
-git add .
-git commit -m "Initial build: Thai ground coffee comparison guide"
-gh repo create thai-coffee-guide --public --source=. --push
+# Push to GitHub
+git add . && git commit -m "chore: update build"
+git push
 
-# Deploy
-docker context use vps2
-docker compose up -d --build
+# Deploy on vps2
+ssh vps2-docker "cd ~/thai-coffee-guide && git pull && docker compose up -d --build"
 ```
 
 ## Pages
