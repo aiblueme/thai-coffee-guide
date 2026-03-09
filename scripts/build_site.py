@@ -82,11 +82,15 @@ def render(template_name: str, output_path: Path, **ctx) -> None:
     print(f"  Built: {output_path.relative_to(PROJECT_ROOT)}")
 
 
+BASE_URL = "https://thai-coffee.shellnode.lol"
+
+
 def build_index(brands: list):
     render(
         "index.html",
         DIST_DIR / "index.html",
         brands=brands,
+        page_url=f"{BASE_URL}/",
     )
 
 
@@ -95,6 +99,7 @@ def build_compare(brands: list):
         "compare.html",
         DIST_DIR / "compare.html",
         brands=brands,
+        page_url=f"{BASE_URL}/compare.html",
     )
 
 
@@ -103,6 +108,7 @@ def build_guide(brands: list):
         "guide.html",
         DIST_DIR / "guide.html",
         brands=brands,
+        page_url=f"{BASE_URL}/guide.html",
     )
 
 
@@ -117,6 +123,7 @@ def build_brand_pages(brands: list):
             brands=brands,
             prev_brand=prev_brand,
             next_brand=next_brand,
+            page_url=f"{BASE_URL}/brands/{brand['slug']}.html",
         )
 
 
@@ -166,7 +173,7 @@ def write_404(brands: list):
 
 def write_sitemap(brands: list):
     """Generate sitemap.xml for all pages."""
-    base_url = "https://shellnode.lol:8420"
+    base_url = BASE_URL
     urls = [
         f"{base_url}/",
         f"{base_url}/compare.html",
@@ -187,7 +194,7 @@ def write_sitemap(brands: list):
 
 def write_robots(brands: list):
     """Generate robots.txt."""
-    content = "User-agent: *\nAllow: /\nSitemap: https://shellnode.lol:8420/sitemap.xml\n"
+    content = f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n"
     (DIST_DIR / "robots.txt").write_text(content, encoding="utf-8")
     print("  Built: dist/robots.txt")
 
