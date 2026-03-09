@@ -3,6 +3,7 @@ services:
     build: .
     container_name: thai-coffee-guide
     restart: unless-stopped
+    mem_limit: 128m
     ports:
       - "8420:80"   # Keep direct port access for debugging
     networks:
